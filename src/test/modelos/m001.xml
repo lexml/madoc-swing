@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<madoc:MadocDocument 
+	xmlns:madoc="http://www.lexml.gov.br/madoc/1.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.lexml.gov.br/madoc/1.0 ../../../main/xsd/Madoc.xsd">
+ 
+    <madoc:Metadata id="m001">
+    	<madoc:Entry key="TipoModelo">Requerimento</madoc:Entry>
+    	<madoc:Entry key="Titulo">Criação de Comissão Temporária Interna/Externa</madoc:Entry>
+    	<madoc:Entry key="Categoria">
+    		<madoc:List>
+    			<madoc:Entry>Comissões</madoc:Entry>
+    		</madoc:List>
+    	</madoc:Entry>
+    	<madoc:Entry key="Indexacao">
+    		<madoc:List>
+    			<madoc:Entry>Comissão</madoc:Entry>
+    			<madoc:Entry>Comissão Temporária</madoc:Entry>
+    			<madoc:Entry>Comissão Temporária Interna</madoc:Entry>
+    			<madoc:Entry>Comissão Temporária Externa</madoc:Entry>
+    			<madoc:Entry>Representação do Senado</madoc:Entry>
+    			<madoc:Entry>Solenidade</madoc:Entry>
+    		</madoc:List>
+    	</madoc:Entry>
+    	<madoc:Entry key="Fundamentacao">
+    		<madoc:Map>
+    			<madoc:Entry key="Comissão Temporária Interna">
+    				<madoc:List>
+    					<madoc:Entry>urn:lex:br:senado.federal:resolucao:1970-11-27;93!art74_inc1</madoc:Entry>
+    				</madoc:List>
+    			</madoc:Entry>
+    			<madoc:Entry key="Comissão Temporária Externa">
+    				<madoc:List>
+    					<madoc:Entry>urn:lex:br:senado.federal:resolucao:1970-11-27;93!art74_inc2</madoc:Entry>
+    				</madoc:List>
+    			</madoc:Entry>
+    		</madoc:Map>
+    	</madoc:Entry>
+    </madoc:Metadata>
+
+    <madoc:Wizard display="Requerimento de Criação de Comissão Temporária Interna/Externa">
+    	<madoc:OnLoadRules>
+    		<madoc:Rule xsi:type="madoc:SimpleRuleType">
+		        <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-destino-subcomissao" changeTo="false"/>
+                <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-destino-comissao" changeTo="false"/>
+                <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-destino-mesa" changeTo="false"/>
+                <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-destino-plenario" changeTo="true"/>
+                <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-fecho-local-sala-reuniao"  changeTo="false"/>
+                <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-fecho-local-sala-comissao"  changeTo="false"/>
+                <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-fecho-local-sala-sessoes"  changeTo="true"/>
+                <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-autoria-signatario-senador"  changeTo="true"/>
+                <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-autoria-signatario-sem-ident"  changeTo="true"/>
+                <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-autoria-signatario-mesa"  changeTo="false"/>
+                <madoc:action xsi:type="madoc:ChangeEnableActionType" targetId="q-lib-autoria-signatario-comissao"  changeTo="true"/>
+                <madoc:action xsi:type="madoc:SetVariableValueActionType" variableName="NaturezaRequerimento" value="141"/>
+    		</madoc:Rule>
+    	</madoc:OnLoadRules>
+    
+        <madoc:Pages>
+            <madoc:Page id="p-detalhes" display="Requerimento de Criação de Comissão Temporária Interna/Externa">
+            
+                <madoc:Question display="Fundamentação:" id="q-tipo-comissao" enabled="true" xsi:type="madoc:RadioBoxGroupQuestionType">
+                	<madoc:OnChangeRules>
+			            <madoc:Rule id="r2" xsi:type="madoc:SwitchRuleType">
+			                <madoc:Case questionValue="Comissão Temporária Interna">
+			                    <madoc:action id="r2-a1" xsi:type="madoc:SetVariableValueActionType"  variableName="Fundamentacao"
+			                        value="nos termos do art. 74, I, do Regimento Interno do Senado Federal"/>
+			                </madoc:Case>
+			                <madoc:Otherwise>
+			                    <madoc:action id="r2-a2" xsi:type="madoc:SetVariableValueActionType"  variableName="Fundamentacao"
+			                        value="nos termos do art. 74, II, do Regimento Interno do Senado Federal"/>
+			                </madoc:Otherwise>
+			            </madoc:Rule>
+                	</madoc:OnChangeRules>
+                	<madoc:Options>
+	                    <madoc:Option value="Comissão Temporária Interna" display="Comissão Temporária Interna (RISF, art. 74, I)" id="cti" selected="true"/>
+	                    <madoc:Option value="Comissão Temporária Externa" display="Comissão Temporária Externa (RISF, art. 74, II)" id="cte"/>
+	                </madoc:Options>    
+                </madoc:Question>
+                
+                
+                <!-- Obtendo EPIGRAFE do banco de questoes -->
+                <!-- 
+				<xi:include href="urn:sf:sistema;madoc:id;question-library"
+					xmlns:xi="http://www.lexml.gov.br/schema/xloom" select="//madoc:Section[@id='q-lib-epigrafe-section']" />
+                 -->
+                
+                <madoc:Section id="p-det-s-comp" display="Composição">
+                    <madoc:Question display="Quantidade de membros titulares" id="q-quant-membros-titulares" xsi:type="madoc:IntegerQuestionType" minValue="2" maxValue="81" defaultValue="11" />
+
+                    <madoc:Question display="Quantidade de membros suplentes" id="q-quant-suplentes" xsi:type="madoc:RadioBoxGroupQuestionType">
+                    	<madoc:OnLoadRules>
+				            <madoc:Rule id="r4" xsi:type="madoc:SwitchRuleType">
+				                <madoc:Case questionValue="mesma_quant">
+				                    <madoc:action id="r4-a1" xsi:type="madoc:SetVariableValueActionType"  variableName="Suplentes"
+				                        value=" com a mesma quantidade de membros suplentes"/>
+				                </madoc:Case>
+				                <madoc:Case questionValue="nao-especificar">
+				                    <madoc:action id="r4-a2" xsi:type="madoc:SetVariableValueActionType"  variableName="Suplentes"
+				                        value=""/>
+				                </madoc:Case>
+				                <madoc:Otherwise>
+				                    <madoc:action id="r4-a3" xsi:type="madoc:SetVariableValueActionType"  variableName="Suplentes"
+				                        value="pegarValor"/>
+				                </madoc:Otherwise>
+				            </madoc:Rule>
+                    	</madoc:OnLoadRules>
+                    	<madoc:Options>
+	                        <madoc:Option value="mesma_quant" display="Mesma quantidade de membros titulares" id="q-quant-suplentes-opt-mesma" selected="true"/>
+	                        <madoc:Option value="nao-especificar" display="Sem membros suplentes" id="q-quant-suplentes-nao-especificar"/>
+	                        <madoc:Option value="q-quant-membros-suplentes" display="Quantidade:" id="q-quant-suplentes-quant" input="true" inputType="integer"/>
+                        </madoc:Options>
+                    </madoc:Question>
+
+<!--                     <madoc:Question display="Ressalvas da composição (assegurada...)" id="q-ressalvas" xsi:type="madoc:CheckBoxGroupQuestionType"> -->
+<!--                     	<madoc:Options> -->
+<!-- 	                        <madoc:Option value="a participação de um membro de cada partido político com representação nesta Casa" display="a participação de um membro de cada partido político com representação nesta Casa" id="q-ressalvas-um-membro"/> -->
+<!-- 	                        <madoc:Option value="a participação de dois membros de cada região do país" display="a participação de dois membros de cada região do país" id="q-ressalvas-dois-membros"/> -->
+<!-- 	                        <madoc:Option value="" display="Nova ressalva:" id="q-ressalvas-nova" input="true" inputType="text"/> -->
+<!-- 						</madoc:Options>	                         -->
+<!--                     </madoc:Question> -->
+                </madoc:Section>
+
+                <madoc:Question display="Prazo da Comissão (em dias)" id="q-prazo" xsi:type="madoc:IntegerQuestionType" required="true" defaultValue="120" minValue="1" maxValue="366" />
+
+                <madoc:Question display="Objetivo" id="q-objetivo" xsi:type="madoc:RichTextQuestionType" 
+                	inline="true" lines="8" 
+                	hint="Iniciar com verbo no infinitivo em minúsculas. Por exemplo: apresentar, acompanhar, apurar, representar, investigar..."/>
+                
+                <!-- Obtendo JUSTIFICATIVA do banco de dados de questões -->
+                <!-- 
+				<xi:include href="urn:sf:sistema;madoc:id;question-library"
+					xmlns:xi="http://www.lexml.gov.br/schema/xloom" select="//madoc:Question[@id='q-lib-justificativa']" />
+				 -->
+				 	
+				<!-- Obtendo LOCAL E DATA do banco de dados de questões -->
+				<!-- 
+				<xi:include href="urn:sf:sistema;madoc:id;question-library"
+					xmlns:xi="http://www.lexml.gov.br/schema/xloom" select="//madoc:Section[@id='q-lib-fecho-localdata-section']" />
+				 -->
+				 
+				<!-- Obtendo AUTORIA do banco de dados de questões -->
+				<!-- 
+				<xi:include href="urn:sf:sistema;madoc:id;question-library"
+					xmlns:xi="http://www.lexml.gov.br/schema/xloom" select="//madoc:Section[@id='q-lib-autoria-section']" />
+				 -->	
+
+            </madoc:Page>
+        </madoc:Pages>
+
+    </madoc:Wizard>
+    
+    <madoc:DataSets>
+    	<!-- Obtendo o dataset de senadores -->
+    	<!-- 
+		<xi:include href="urn:sf:sistema;madoc:id;dataset-library"
+			xmlns:xi="http://www.lexml.gov.br/schema/xloom" select="//madoc:DataSet[@id='senadores']" />
+		-->
+				
+		<!-- Obtendo o dataset de comissoes -->
+		<!-- 
+		<xi:include href="urn:sf:sistema;madoc:id;dataset-library"
+			xmlns:xi="http://www.lexml.gov.br/schema/xloom" select="//madoc:DataSet[@id='comissoes']" />
+		 -->						
+    </madoc:DataSets>
+
+    <madoc:Templates madocSkeletonId="s001">
+    	<madoc:Template replaceName="objetoDoRequerimento">
+    		<madoc:content>
+    	<![CDATA[
+		    
+		   $verboRequeiro, $madoc.valueOf.Fundamentacao, a constituição de uma $madoc.valueOf.q-tipo-comissao
+		   composta de $madoc.valueOf.q-quant-membros-titulares ($madoc.writeIntegerInWords($madoc.valueOf.q-quant-membros-titulares)) membros titulares
+		   #if($madoc.valueOf.Suplentes=='pegarValor') 
+		   		com $madoc.valueOf.q-quant-membros-suplentes ($madoc.writeIntegerInWords($madoc.valueOf.q-quant-membros-suplentes)) membros suplentes 
+		   #else 
+		   		$madoc.valueOf.Suplentes
+		   #end
+		   
+		 #*
+           #set($ressalvas=$madoc.splitValues($madoc.valueOf.q-ressalvas))  
+		   #set($qtRessalvas = $madoc.size($ressalvas))
+		   #if($qtRessalvas > 0) 
+		       #if($qtRessalvas == 1) assegurada #else asseguradas #end
+		       #foreach($ressalva in $ressalvas)
+		       		#if($foreach.count > 1)
+		       			#if($foreach.hasNext)
+		       				, 
+		       			#else
+		       				e 
+		       			#end
+		       		#end
+		       		$madoc.html2fo($ressalva)
+		       	#end
+		   #end  
+         *#
+		   
+		   para, no prazo de $madoc.valueOf.q-prazo $madoc.writeDayInWords($madoc.valueOf.q-prazo), ${madoc.valueOf.q-objetivo} #if(!$madoc.valueOf.q-objetivo.endsWith('.')).#end]]>
+		   </madoc:content>
+		</madoc:Template>
+        
+    </madoc:Templates>
+    
+
+</madoc:MadocDocument>

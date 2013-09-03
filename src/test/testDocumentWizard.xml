@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Q1:MadocDocument xmlns:Q1="http://www.lexml.gov.br/madoc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xsi:schemaLocation="http://www.lexml.gov.br/madoc ../main/xsd/MadocDocument.xsd"
+	id="testDocumentWizard1">
+
+	<Q1:Metadata>
+		<Q1:releaseDateTime>2012-01-01T03:00:00</Q1:releaseDateTime>
+	</Q1:Metadata>
+
+	<Q1:Wizard display="Requerimento da Lisbeth">
+
+		<Q1:Pages>
+			<Q1:Page id="page1" display="Pagina 1">
+
+				<Q1:Question display="Qual o nome do pai da Lisbeth?"
+					id="questao5" xsi:type="Q1:MemoTextQuestionType" defaultValue="digite aqui..." />
+
+				<Q1:Question display="Que dia é hoje?" id="questao6"
+					xsi:type="Q1:DateQuestionType" />
+
+				<Q1:Section id="nada" display="Seção 1">
+
+					<Q1:Question id="questao1" display="Quanto é 1 + 1?"
+						hint="Dica da questão 1+1" xsi:type="Q1:ComboQuestionType"
+						enabled="true" defaultOptionId="opt2">
+						<Q1:Option id="opt1" value="3" display="Resposta 3!"
+							hint="Trata-se de um número par..." />
+						<Q1:Option id="opt2" value="2" display="Resposta 2"
+							hint="Você está certo!" enabled="true" />
+						<Q1:Option id="opt3" value="4" display="Resposta 4"
+							hint="Este é um número múltiplo do resultado" />
+					</Q1:Question>
+
+					<Q1:Question id="questao2" display="Selecione os múltiplos de 2?"
+						xsi:type="Q1:CheckBoxGroupQuestionType" enabled="true"
+						hint="Há 2 respostas corretas" defaultOptionId="q2_opt3">
+						<Q1:Option id="q2_opt1" display="4" value="4" />
+						<Q1:Option id="q2_opt2" display="1" value="1" />
+						<Q1:Option id="q2_opt3" display="8" value="8" />
+						<Q1:Option id="q2_opt4" display="9" value="9" inputText="true" />
+					</Q1:Question>
+
+					<Q1:Question id="questao500" display="questao500 - Selecione número primo:"
+						xsi:type="Q1:RadioBoxGroupQuestionType" enabled="true"
+						hint="Há 1 resposta correta" defaultOptionId="q500_opt4">
+						<Q1:Option id="q500_opt1" display="4" value="4" />
+						<Q1:Option id="q500_opt2" display="1" value="1" />
+						<Q1:Option id="q500_opt3" display="8" value="8" />
+						<Q1:Option id="q500_opt4" display="9" value="9"
+							inputText="true" />
+					</Q1:Question>
+
+					<Q1:Question id="questao3" display="Quem descobriu o Brasil?"
+						xsi:type="Q1:InputTextQuestionType" enabled="true" defaultValue="Cristó..." />
+
+					<Q1:Question id="questao4" display="Fale sobre Lisbeth Salander:"
+						hint="Ela era uma hacker" xsi:type="Q1:InputTextQuestionType"
+						enabled="true" />
+
+				</Q1:Section>
+
+				<Q1:Section id="secao10" display="Nova seção 10" enabled="true">
+
+					<Q1:Question display="Quantos anos você tem?" id="questao8"
+						xsi:type="Q1:NumberQuestionType" />
+
+					<Q1:Question display="A resposta correta é:" id="questao9"
+						xsi:type="Q1:ComboQuestionType">
+						<Q1:Option value="valor1" display="Hoje" id="questao9_valor1" />
+						<Q1:Option value="valor2" display="Amanhã" id="questao9_valor2" />
+						<Q1:Option value="valor3" display="Nunca" id="questao9_valor3" />
+						<Q1:Option value="valor4" display="Ontem" id="questao9_valor4" />
+					</Q1:Question>
+
+					<Q1:Question display="Marque se estiver dia lá fora"
+						id="questao7" xsi:type="Q1:CheckBoxQuestionType" checked="false"
+						hint="Olhe pela janela" />
+
+					<Q1:Question display="Você já foi à Monte Santo" id="questao100"
+						xsi:type="Q1:CheckBoxQuestionType" checked="false" hint="Use a memória" />
+
+				</Q1:Section>
+
+			</Q1:Page>
+			
+			<Q1:Page id="page2">
+				<Q1:Question display="Questão1 da página 2" id="page2_questao1" enabled="true" hint="Dica desta questão" xsi:type="Q1:InputTextQuestionType" />
+				<Q1:Question display="Questão 2 da página 2" id="page2_questao2" enabled="true" xsi:type="Q1:CheckBoxQuestionType" checked="true"/>
+			</Q1:Page>
+			
+			<Q1:Page id="page3">
+				<Q1:Question display="Questão 1 da página 3" id="page3_questao1" xsi:type="Q1:ComboQuestionType" defaultOptionId="page3_q1_op2">
+					<Q1:Option value="opt1" display="Opção1" id="page3_q1_op1"/>
+					<Q1:Option value="opt2" display="Opção2" id="page3_q1_op2"/>
+					<Q1:Option value="opt3" display="Opção3" id="page3_q1_op3"/>
+				</Q1:Question>
+			</Q1:Page>
+		</Q1:Pages>
+
+		<Q1:Rules>
+			<Q1:Rule id="rule1" xsi:type="Q1:SwitchRuleType" questionId="questao1">
+				<Q1:Case questionValue="3">
+					<Q1:action id="action1" xsi:type="Q1:ChangeEnableActionType"
+						targetId="questao2" changeTo="false" />
+				</Q1:Case>
+				<Q1:Otherwise>
+					<Q1:action id="action1" xsi:type="Q1:ChangeEnableActionType"
+						targetId="questao2" changeTo="false" />
+
+					<Q1:action id="action2" xsi:type="Q1:ChangeEnableActionType"
+						targetId="questao500" changeTo="true" />
+					<Q1:action id="action3" xsi:type="Q1:SetVariableValueActionType"
+						variableName="variavel1" value="otherwise content value" />
+				</Q1:Otherwise>
+			</Q1:Rule>
+
+			<Q1:Rule questionId="questao2" id="rule2" xsi:type="Q1:SwitchRuleType"
+				enabled="true">
+				<Q1:Case questionValue="1">
+					<Q1:action id="action2-1" enabled="true"
+						xsi:type="Q1:ChangeEnableActionType" targetId="q2_opt1" changeTo="false" />
+				</Q1:Case>
+				<Q1:Case questionValue="8,9">
+					<Q1:action id="action2-2" enabled="true"
+						xsi:type="Q1:ChangeEnableActionType" targetId="q2_opt4" changeTo="false" />
+					<Q1:action id="action2-2-1" enabled="true"
+						xsi:type="Q1:ChangeVisibilityActionType" targetId="questao500"
+						changeTo="false" />
+				</Q1:Case>
+				<Q1:Otherwise xsi:type="Q1:ActionListType">
+					<Q1:action id="action2-other" enabled="true"
+						xsi:type="Q1:ChangeEnableActionType" changeTo="true" targetId="q2_opt1" />
+					<Q1:action id="action2-other" enabled="true"
+						xsi:type="Q1:ChangeEnableActionType" changeTo="true" targetId="q2_opt4" />
+					<Q1:action id="action2-2-1" enabled="true"
+						xsi:type="Q1:ChangeVisibilityActionType" targetId="questao500"
+						changeTo="true" />
+				</Q1:Otherwise>
+			</Q1:Rule>
+
+		</Q1:Rules>
+	</Q1:Wizard>
+
+	<Q1:DocumentTemplate>
+		<![CDATA[
+		]]>
+	</Q1:DocumentTemplate>
+</Q1:MadocDocument>

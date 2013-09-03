@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<fop version="1.0">
+
+  <base>.</base>
+  
+  <source-resolution>72</source-resolution>
+
+  <target-resolution>72</target-resolution>
+  
+  <default-page-settings height="11in" width="8.26in"/>
+  
+  <prefer-renderer>true</prefer-renderer> 
+  
+  <renderers>
+    <renderer mime="application/pdf">
+    	<!--
+      <filterList>
+        <value>flate</value>
+      </filterList>
+      -->
+
+      <fonts>
+		<!--
+  		<directory recursive="true">/home/lauro/workspace/CodigoSenado/madoc/src/main/resources/pdfa-fonts</directory>
+		-->
+
+		<!-- Gentium  cid single-byte -->
+		<font kerning="yes" embed-url="GenBasB.ttf" encoding-mode="single-byte">
+			<font-triplet name="Gentium Basic" style="normal" weight="bold"/>
+		</font>
+	
+		<font kerning="yes" embed-url="GenBasBI.ttf" encoding-mode="single-byte">
+			<font-triplet name="Gentium Basic" style="italic" weight="bold"/>
+		</font>
+	
+		<font kerning="yes" embed-url="GenBasI.ttf" encoding-mode="single-byte">
+			<font-triplet name="Gentium Basic" style="italic" weight="normal"/>
+		</font>
+	
+		<font kerning="yes" embed-url="GenBasR.ttf" encoding-mode="single-byte">
+			<font-triplet name="Gentium Basic" style="normal" weight="normal"/>
+		</font>
+		
+		<!--
+		<auto-detect/>
+		-->
+      </fonts>
+      
+    </renderer>
+
+  </renderers>
+
+</fop>

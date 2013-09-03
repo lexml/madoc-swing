@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="../js/jquery.mobile-1.1.0/jquery.mobile-1.1.0.min.css" />
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script src="js/index.js"></script>
+<script src="../js/jquery.mobile-1.1.0/jquery.mobile-1.1.0-min.js"></script>
+
+<title>Minha página</title>
+</head>
+<body>
+	<div data-role="page" data-theme="b" id="page1">
+		<div data-role="header">
+			<h1>Este &eacute; o título da página</h1>
+		</div>
+		<!-- /header -->
+
+		<div data-role="content">
+			Este é o conteúdo<br> <br>
+
+			<ul data-role="listview" data-inset="true" data-filter="true">
+				<li><a href="#">Acura</a></li>
+				<li><a href="#">Audi</a></li>
+				<li><a href="#">BMW</a></li>
+				<li><a href="#">Cadillac</a></li>
+				<li><a href="#">Ferrari</a></li>
+			</ul>
+
+			<form>
+				<label for="slider-0">Input slider:</label> <input type="range"
+					name="slider" id="slider-0" value="25" min="0" max="100" />
+			</form>
+
+
+			<h3>Show internal pages:</h3>
+			<p>
+				<a href="#page2" data-role="button">Show page2</a>
+			</p>
+			<p>
+				<a href="#popup" data-role="button" data-rel="dialog"
+					data-transition="pop">Show page "popup" (as a dialog)</a>
+			</p>
+			<p>
+				<a href="products.html" rel="external" data-role="button" 
+					data-transition="pop">Produtos</a>
+			</p>
+
+		</div>
+		<!-- /content -->
+
+	</div>
+	<!-- /page1 -->
+
+	<div data-role="page" data-theme="b" id="page2" data-title="Página 2">
+		<div data-role="header">
+			<h1>Este &eacute; o título da página 2</h1>
+		</div>
+		<!-- /header -->
+
+		<div data-role="content">
+			Este é o conteúdo da segunda página<br> <br>
+
+			<ul data-role="listview" data-inset="true" data-filter="true">
+				<li><a href="#">GM</a></li>
+				<li><a href="#">Chevrolet</a></li>
+				<li><a href="#">Opel</a></li>
+				<li><a href="#">Fiat</a></li>
+				<li><a href="#">VW</a></li>
+			</ul>
+
+			<a href="#page1" data-role="button" data-icon="star" data-iconpos="top"
+				data-corners="true">Star button - Voltar a pagina 1</a>
+		</div>
+		<!-- /content -->
+
+		<div data-role="footer">
+			<h4>Page Footer</h4>
+		</div>
+		<!-- /footer -->
+
+	</div>
+	<!-- /page2 -->
+
+
+	<!-- Start of third page: #popup -->
+	<div data-role="page" id="popup">
+
+		<div data-role="header" data-theme="e">
+			<h1>Dialog</h1>
+		</div>
+		<!-- /header -->
+
+		<div data-role="content" data-theme="d">
+			<h2>Popup</h2>
+			<p>
+				I have an id of "popup" on my page container and only look like a
+				dialog because the link to me had a
+				<code>data-rel="dialog"</code>
+				attribute which gives me this inset look and a
+				<code>data-transition="pop"</code>
+				attribute to change the transition to pop. Without this, I'd be
+				styled as a normal page.
+			</p>
+			<p>
+				<a href="#page1" data-rel="back" data-role="button" data-inline="true"
+					data-icon="back">Back to page "one"</a>
+			</p>
+		</div>
+		<!-- /content -->
+
+		<div data-role="footer">
+			<h4>Page Footer</h4>
+		</div>
+		<!-- /footer -->
+	</div>
+	<!-- /page popup -->
+
+
+
+</body>
+</html>
