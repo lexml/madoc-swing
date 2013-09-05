@@ -201,9 +201,8 @@
 		
 		<dependency>
 			<groupId>ru.hobbut</groupId>
-    		<artifactId>fop-zxing</artifactId>
-			<!-- <version>0.2-SNAPSHOT</version>  -->
-			<version>0.1.2</version>
+    		<artifactId>fop-qrcode-zxing</artifactId>
+			<version>0.2</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>fop</artifactId>
