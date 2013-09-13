@@ -2,12 +2,6 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>br.gov.lexml</groupId>
-		<artifactId>public-maven-parent</artifactId>
-		<version>0.0.2</version>
-	</parent>
-
 	<groupId>br.gov.lexml.madoc</groupId>
 	<artifactId>madoc</artifactId>
 	<version>0.0.27-SNAPSHOT</version>
@@ -17,12 +11,251 @@
 
 	<url>http://www.lexml.gov.br</url>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- github server corresponds to entry in ~/.m2/settings.xml -->
+		<github.global.server>github</github.global.server>
+	</properties>
+
 	<scm>
 		<url>https://github.com/lexml/${project.artifactId}</url>
 		<developerConnection>scm:git:https://github.com/lexml/${project.artifactId}.git</developerConnection>
 		<connection>scm:git:https://github.com/lexml/${project.artifactId}.git</connection>
 		<tag>HEAD</tag>
 	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>GitHub ${project.artifactId} Repository</name>
+			<url>https://raw.github.com/lexml/mvn-repo/master</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>GitHub Repository</id>
+			<url>https://raw.github.com/lexml/mvn-repo/master</url>
+			<releases>
+      			<enabled>true</enabled>
+    		</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<detail>true</detail>
+					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+				</configuration>
+			</plugin>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-source-plugin</artifactId>
+			  <executions>
+			    <execution>
+			      <id>attach-sources</id>
+			      <goals>
+			        <goal>jar</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.8</version>
+				<configuration>
+					<message>Maven artifacts for ${project.artifactId}
+						${project.version}</message>  <!-- git commit message -->
+					<noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
+					<branch>refs/heads/master</branch>
+					<includes>
+						<include>**/*</include>
+					</includes>
+					<repositoryName>mvn-repo</repositoryName>      <!-- github repo name -->
+					<repositoryOwner>lexml</repositoryOwner>    <!-- github username -->
+					<merge>true</merge>
+				</configuration>
+				<executions>
+					<!-- run site-maven-plugin's 'site' target as part of the build's normal 
+						'deploy' phase -->
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<compilerArguments>
+						<g />
+						<deprecation />
+					</compilerArguments>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.8.2</version>
+				<executions>
+					<execution>
+						<id>jaxb2-schemas</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<extension>true</extension>
+
+					<args>
+						<arg>-Xcopyable</arg>
+						<arg>-Xinheritance</arg>
+						<arg>-Xvisitor</arg>
+						<arg>-Xvisitor-package:br.gov.lexml.madoc.schema.entity.visitor</arg>
+					</args>
+
+					<schemaDirectory>src/main/xsd</schemaDirectory>
+					<generatePackage>br.gov.lexml.madoc.schema.entity</generatePackage>
+					<generateDirectory>${project.build.directory}/generated-sources/xjc</generateDirectory>
+
+					<plugins>
+						<plugin>
+							<groupId>org.ops4j.xvisitor</groupId>
+							<artifactId>xvisitor-plugin</artifactId>
+							<version>0.1.0</version>
+						</plugin>
+						<plugin>
+							<groupId>org.jvnet.jaxb2_commons</groupId>
+							<artifactId>jaxb2-basics</artifactId>
+							<version>0.6.4</version>
+						</plugin>
+					</plugins>
+				</configuration>
+			</plugin>
+
+			<!-- Manifest info -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<index>false</index>
+						
+						<manifestEntries>
+							<Project-version>${project.version}</Project-version>
+						</manifestEntries>
+						<manifestSections>
+							<manifestSection>
+								<name>pdfa-fonts/GenBasB.ttf</name>
+								<manifestEntries>
+									<Content-Type>application/x-font</Content-Type>
+								</manifestEntries>
+							</manifestSection>
+							<manifestSection>
+								<name>pdfa-fonts/GenBasBI.ttf</name>
+								<manifestEntries>
+									<Content-Type>application/x-font</Content-Type>
+								</manifestEntries>
+							</manifestSection>
+							<manifestSection>
+								<name>pdfa-fonts/GenBasI.ttf</name>
+								<manifestEntries>
+									<Content-Type>application/x-font</Content-Type>
+								</manifestEntries>
+							</manifestSection>
+							<manifestSection>
+								<name>pdfa-fonts/GenBasR.ttf</name>
+								<manifestEntries>
+									<Content-Type>application/x-font</Content-Type>
+								</manifestEntries>
+							</manifestSection>
+							
+							<manifestSection>
+								<name>pdfa-fonts/FreeSerif.ttf</name>
+								<manifestEntries>
+									<Content-Type>application/x-font</Content-Type>
+								</manifestEntries>
+							</manifestSection>
+							<manifestSection>
+								<name>pdfa-fonts/FreeSerifBold.ttf</name>
+								<manifestEntries>
+									<Content-Type>application/x-font</Content-Type>
+								</manifestEntries>
+							</manifestSection>
+							<manifestSection>
+								<name>pdfa-fonts/FreeSerifBoldItalic.ttf</name>
+								<manifestEntries>
+									<Content-Type>application/x-font</Content-Type>
+								</manifestEntries>
+							</manifestSection>
+							<manifestSection>
+								<name>pdfa-fonts/FreeSerifItalic.ttf</name>
+								<manifestEntries>
+									<Content-Type>application/x-font</Content-Type>
+								</manifestEntries>
+							</manifestSection>							
+						</manifestSections>
+					</archive>
+				</configuration>
+			</plugin>
+			
+			<!-- 
+			<plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sourceDir>src/main/scala</sourceDir>
+                    <jvmArgs>
+                        <jvmArg>-Xms64m</jvmArg>
+                        <jvmArg>-Xmx1024m</jvmArg>
+                    </jvmArgs>
+                    <scalaVersion>2.9.1</scalaVersion>                    
+                </configuration>
+            </plugin>
+             -->
+
+		</plugins>
+
+	</build>
+
 
 	<dependencies>
 		<dependency>
@@ -228,158 +461,5 @@
         	</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<compilerArguments>
-						<g />
-						<deprecation />
-					</compilerArguments>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.jvnet.jaxb2.maven2</groupId>
-				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.8.2</version>
-				<executions>
-					<execution>
-						<id>jaxb2-schemas</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<extension>true</extension>
-
-					<args>
-						<arg>-Xcopyable</arg>
-						<arg>-Xinheritance</arg>
-						<arg>-Xvisitor</arg>
-						<arg>-Xvisitor-package:br.gov.lexml.madoc.schema.entity.visitor</arg>
-					</args>
-
-					<schemaDirectory>src/main/xsd</schemaDirectory>
-					<generatePackage>br.gov.lexml.madoc.schema.entity</generatePackage>
-					<generateDirectory>${project.build.directory}/generated-sources/xjc</generateDirectory>
-
-					<plugins>
-						<plugin>
-							<groupId>org.ops4j.xvisitor</groupId>
-							<artifactId>xvisitor-plugin</artifactId>
-							<version>0.1.0</version>
-						</plugin>
-						<plugin>
-							<groupId>org.jvnet.jaxb2_commons</groupId>
-							<artifactId>jaxb2-basics</artifactId>
-							<version>0.6.4</version>
-						</plugin>
-					</plugins>
-				</configuration>
-			</plugin>
-
-			<!-- Manifest info -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<archive>
-						<index>false</index>
-						
-						<manifestEntries>
-							<Project-version>${project.version}</Project-version>
-						</manifestEntries>
-						<manifestSections>
-							<manifestSection>
-								<name>pdfa-fonts/GenBasB.ttf</name>
-								<manifestEntries>
-									<Content-Type>application/x-font</Content-Type>
-								</manifestEntries>
-							</manifestSection>
-							<manifestSection>
-								<name>pdfa-fonts/GenBasBI.ttf</name>
-								<manifestEntries>
-									<Content-Type>application/x-font</Content-Type>
-								</manifestEntries>
-							</manifestSection>
-							<manifestSection>
-								<name>pdfa-fonts/GenBasI.ttf</name>
-								<manifestEntries>
-									<Content-Type>application/x-font</Content-Type>
-								</manifestEntries>
-							</manifestSection>
-							<manifestSection>
-								<name>pdfa-fonts/GenBasR.ttf</name>
-								<manifestEntries>
-									<Content-Type>application/x-font</Content-Type>
-								</manifestEntries>
-							</manifestSection>
-							
-							<manifestSection>
-								<name>pdfa-fonts/FreeSerif.ttf</name>
-								<manifestEntries>
-									<Content-Type>application/x-font</Content-Type>
-								</manifestEntries>
-							</manifestSection>
-							<manifestSection>
-								<name>pdfa-fonts/FreeSerifBold.ttf</name>
-								<manifestEntries>
-									<Content-Type>application/x-font</Content-Type>
-								</manifestEntries>
-							</manifestSection>
-							<manifestSection>
-								<name>pdfa-fonts/FreeSerifBoldItalic.ttf</name>
-								<manifestEntries>
-									<Content-Type>application/x-font</Content-Type>
-								</manifestEntries>
-							</manifestSection>
-							<manifestSection>
-								<name>pdfa-fonts/FreeSerifItalic.ttf</name>
-								<manifestEntries>
-									<Content-Type>application/x-font</Content-Type>
-								</manifestEntries>
-							</manifestSection>							
-						</manifestSections>
-					</archive>
-				</configuration>
-			</plugin>
-			
-			<!-- 
-			<plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <sourceDir>src/main/scala</sourceDir>
-                    <jvmArgs>
-                        <jvmArg>-Xms64m</jvmArg>
-                        <jvmArg>-Xmx1024m</jvmArg>
-                    </jvmArgs>
-                    <scalaVersion>2.9.1</scalaVersion>                    
-                </configuration>
-            </plugin>
-             -->
-
-		</plugins>
-
-	</build>
 
 </project>
