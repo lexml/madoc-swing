@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -62,7 +63,7 @@ public class VelocityExtension {
 				if (value== null){
 					return "";
 				}
-				return value;
+				return StringEscapeUtils.escapeXml(value);
 			}
 		};
 	}
@@ -81,7 +82,7 @@ public class VelocityExtension {
 				if (displays == null){
 					return "";
 				}
-				return displays;
+				return StringEscapeUtils.escapeXml(displays);
 
 			}
 		};
@@ -103,7 +104,7 @@ public class VelocityExtension {
 					return "";
 				}
 				
-				return val;
+				return StringEscapeUtils.escapeXml(val);
 			}
 		};
 	}
@@ -116,7 +117,7 @@ public class VelocityExtension {
 				
 				QuestionType qt = contextCollection.getQuestionsMap().get(key.toString());
 				if(qt != null && qt instanceof TextQuestionType) {
-					return ((TextQuestionType) qt).getDefaultValue();
+					return StringEscapeUtils.escapeXml(((TextQuestionType) qt).getDefaultValue());
 				} else {
 					return "";
 				}
@@ -316,27 +317,27 @@ public class VelocityExtension {
 		return replaced;
 	}
 	
-	public String normalizeSpaces(String code){
+	public String normalizeSpaces(String code) {
 		if (StringUtils.isEmpty(code)){
 			return "";
 		}
-		return code.replaceAll("\\s\\s+", " ");
+		return code.replaceAll("\\s{2,}", " ");
 	}
 
 	// HTML to XSL-FO
 	public String html2fo(String html) {
-		log.debug("html2fo - ANTES: "+html);
+		log.debug("html2fo - ANTES: " + html);
 		VelocityExtensionHTML2FO h2fo = VelocityExtensionHTML2FO.getInstance();
 		String s = h2fo.html2fo(html, ctx, velocityEngine);
-		log.debug("html2fo - DEPOIS: "+s);
+		log.debug("html2fo - DEPOIS: " + s);
 		return s;
 	}
 	
 	public String html2fo(String html, @SuppressWarnings("rawtypes") Map conf) {
-		log.debug("html2fo - ANTES: "+html);
+		log.debug("html2fo - ANTES: " + html);
 		VelocityExtensionHTML2FO h2fo = new VelocityExtensionHTML2FO(conf);
 		String s = h2fo.html2fo(html, ctx, velocityEngine);
-		log.debug("html2fo - DEPOIS: "+s);
+		log.debug("html2fo - DEPOIS: " + s);
 		return s;
 	}
 	
