@@ -4,7 +4,7 @@
 
 	<groupId>br.gov.lexml.madoc</groupId>
 	<artifactId>madoc</artifactId>
-	<version>0.0.27</version>
+	<version>0.0.28-SNAPSHOT</version>
 
 	<name>Automatic Document Assembler</name>
 	<description>Montador automático de documentos</description>
