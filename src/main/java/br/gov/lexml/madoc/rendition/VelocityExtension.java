@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -63,7 +62,7 @@ public class VelocityExtension {
 				if (value== null){
 					return "";
 				}
-				return StringEscapeUtils.escapeXml(value);
+				return basicXmlEscape(value);
 			}
 		};
 	}
@@ -82,7 +81,7 @@ public class VelocityExtension {
 				if (displays == null){
 					return "";
 				}
-				return StringEscapeUtils.escapeXml(displays);
+				return basicXmlEscape(displays);
 
 			}
 		};
@@ -104,7 +103,7 @@ public class VelocityExtension {
 					return "";
 				}
 				
-				return StringEscapeUtils.escapeXml(val);
+				return basicXmlEscape(val);
 			}
 		};
 	}
@@ -117,11 +116,12 @@ public class VelocityExtension {
 				
 				QuestionType qt = contextCollection.getQuestionsMap().get(key.toString());
 				if(qt != null && qt instanceof TextQuestionType) {
-					return StringEscapeUtils.escapeXml(((TextQuestionType) qt).getDefaultValue());
+					return basicXmlEscape(((TextQuestionType) qt).getDefaultValue());
 				} else {
 					return "";
 				}
 			}
+
 		};
 
 	}
@@ -348,4 +348,9 @@ public class VelocityExtension {
 	public String sha1(String text){
 		return DigestUtils.sha1Hex(text);
 	}
+	
+	private String basicXmlEscape(String str) {
+		return str.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;").replace("'", "&apos;");
+	}
+	
 }
