@@ -144,6 +144,7 @@ public class Rendition {
 		// doing replacements, expansions and process Velocity
 		// templateResult is a FOP pure code
 		String templateResult = getTemplateResult();
+        templateResult = templateResult.replaceAll("</fo:inline> </fo:inline>", "</fo:inline></fo:inline>");
 		
 		if (log.isDebugEnabled()) {
 			log.debug("templateResult before FOPProcessor: "+templateResult);
