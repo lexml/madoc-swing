@@ -32,4 +32,9 @@ class TextInput implements MadocSwingInput<JTextField> {
 		textField.addActionListener(el);
 	}
 
+    @Override
+    public void setEnabled(boolean enabled) {
+        textField.setEnabled(enabled);
+    }
+
 }

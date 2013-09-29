@@ -47,5 +47,10 @@ class IntegerInput implements MadocSwingInput<JSpinner> {
 		spinner.addChangeListener(el);
 	}
 
+    @Override
+    public void setEnabled(boolean enabled) {
+        spinner.setEnabled(enabled);
+    }
+
 
 }

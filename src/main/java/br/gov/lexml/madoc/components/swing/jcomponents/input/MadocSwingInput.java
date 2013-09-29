@@ -13,5 +13,6 @@ public interface MadocSwingInput<C extends JComponent>{
 	public C getComponent();
 	
 	public void addListener(SwingListener el);
-	
+
+    public void setEnabled(boolean enabled);
 }

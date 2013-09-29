@@ -93,6 +93,9 @@ public class JToggleInput<T extends JToggleButton> extends JPanel {
 	public void setEnabled(boolean b){
 		super.setEnabled(b);
 		toggleButton.setEnabled(b);
+        if (isInput) {
+            inputComponent.setEnabled(b);
+        }
 	}
 
 }

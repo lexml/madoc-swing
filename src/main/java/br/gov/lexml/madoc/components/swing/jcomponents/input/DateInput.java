@@ -53,4 +53,9 @@ class DateInput implements MadocSwingInput<JDateChooser> {
 		//there is no listener to add
 	}
 
+    @Override
+    public void setEnabled(boolean enabled) {
+       jDateChooser.setEnabled(enabled);
+    }
+
 }

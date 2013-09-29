@@ -47,4 +47,9 @@ class DecimalInput implements MadocSwingInput<JFormattedTextField> {
 		textField.addActionListener(el);
 	}
 
+    @Override
+    public void setEnabled(boolean enabled) {
+        textField.setEnabled(enabled);
+    }
+
 }
