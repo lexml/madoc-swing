@@ -136,7 +136,7 @@ public class ComponentController {
 			
 			q.setValue(value);
 			
-			if (!oldValue.equals(value)){
+			if (oldValue == null || !oldValue.equals(value)) {
 				executeOnChangeRules(q);
 			}
 			
