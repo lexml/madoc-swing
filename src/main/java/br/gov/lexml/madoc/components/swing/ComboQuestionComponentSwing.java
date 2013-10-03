@@ -134,4 +134,14 @@ class ComboQuestionComponentSwing
 		setValue(value);
 	}
 
+	@Override
+	public void selectOption(String optionId) {
+		for (OptionComboItemComponent ocic : getOptionsMap().values()){
+			if (ocic.getWizardElement().getId().equals(optionId)){
+				comboBoxModel.setSelectedItem(ocic);
+				break;
+			}
+		}
+	}
+
 }

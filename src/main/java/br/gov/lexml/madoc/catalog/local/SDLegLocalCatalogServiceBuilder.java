@@ -12,8 +12,6 @@ import br.gov.lexml.madoc.catalog.store.DirectoryCatalogStore;
 import br.gov.lexml.madoc.catalog.store.DocumentStore;
 import br.gov.lexml.madoc.catalog.store.FirstSuccessful;
 import br.gov.lexml.madoc.catalog.store.FirstSucessfulRewriter;
-import br.gov.lexml.madoc.catalog.store.LoggingDocumentStoreFilter;
-import br.gov.lexml.madoc.catalog.store.PatternGuardedStore;
 import br.gov.lexml.madoc.catalog.store.RegexRewriter;
 import br.gov.lexml.madoc.catalog.store.Rewriter;
 import br.gov.lexml.madoc.catalog.store.RewriterFilter;

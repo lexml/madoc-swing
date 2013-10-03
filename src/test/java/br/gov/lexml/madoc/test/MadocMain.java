@@ -2,19 +2,15 @@ package br.gov.lexml.madoc.test;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 import javax.swing.SwingUtilities;
 
 import org.apache.commons.io.FileUtils;
 
-import com.itextpdf.text.log.SysoLogger;
-
 import br.gov.lexml.madoc.MadocException;
 import br.gov.lexml.madoc.catalog.CatalogException;
 import br.gov.lexml.madoc.catalog.CatalogService;
 import br.gov.lexml.madoc.catalog.CatalogServiceFactory;
-import br.gov.lexml.madoc.catalog.ModelInfo;
 import br.gov.lexml.madoc.catalog.local.SDLegLocalCatalogServiceBuilder;
 import br.gov.lexml.madoc.catalog.sdleg.SDLegCatalogServiceBuilder;
 import br.gov.lexml.madoc.data.DataSets;
@@ -105,9 +101,10 @@ public class MadocMain {
 				//madoc.loadMadocDocumentFromSDLeg("m-teste");
 				//madoc.loadMadocDocumentFromSDLeg("m016"); // TESTE DO PDF
 				//madoc.loadMadocDocumentFromSDLeg("m001"); 
-				//madoc.loadMadocDocumentFromSDLeg("cvm001");	// VETOS
-				madoc.loadMadocDocumentFromSDLeg("cvm002");	// VETOS COMPLETO
+				//madoc.loadMadocDocumentFromSDLeg("cvm001");	// VE TOS
+				//madoc.loadMadocDocumentFromSDLeg("cvm002");	// VETOS COMPLETO
 				//madoc.loadMadocDocumentFromSDLeg("m011");
+				madoc.loadMadocDocumentFromSDLeg("m026");
 				
 				//madoc.showLibraryContent();
 				

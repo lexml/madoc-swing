@@ -97,6 +97,13 @@ abstract class AbstractQuestionWithOptionToggleComponentSwing
 		setValue(value, false);	
 	}
 	
+	@Override
+	public void selectOption(String optionId) {
+		for (C o : getOptionsMap().values()){
+			o.setSelected(o.getId().equals(optionId));
+		}
+	}
+	
 	private void setValue(String value, boolean clear){
 		Collection<C> optionsList = getOptionsMap().values();
 		

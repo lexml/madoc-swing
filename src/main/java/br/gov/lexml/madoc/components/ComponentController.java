@@ -83,6 +83,8 @@ public class ComponentController {
 		} else {
 			
 			QuestionComponent<?, ?> questionComponent = (QuestionComponent<?, ?>) baseWizardComponent;
+			
+			//preparing a map of id, QuestionComponent
 			for (String id: questionComponent.getIds()){
 				baseWizardComponentsMap.put(id, questionComponent);
 			}
@@ -165,6 +167,16 @@ public class ComponentController {
 			log.debug("addQuestionValue; questionId: "+questionId+"; oldValue: "+oldValue+ ";newValue: "+value+"; question found");
 		} else {
 			log.debug("addQuestionValue; questionId: "+questionId+"; question not found");
+		}
+	}
+	
+	public void selectOption(String optionId){
+		//try get a question from this optionId
+		QuestionComponent<?,?> q = getQuestionComponentById(optionId);
+		
+		if (q instanceof QuestionWithOptionComponent<?,?>){
+			QuestionWithOptionComponent<?,?> qwoc = (QuestionWithOptionComponent<?,?>)q;
+			qwoc.selectOption(optionId);
 		}
 	}
 	

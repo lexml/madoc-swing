@@ -3,11 +3,13 @@ package br.gov.lexml.madoc.components.swing;
 import br.gov.lexml.madoc.components.AbstractQuestionWithOptionComponent;
 import br.gov.lexml.madoc.components.ComponentController;
 import br.gov.lexml.madoc.components.swing.jcomponents.QuestionPanel;
+import br.gov.lexml.madoc.schema.entity.BaseOptionInterface;
 import br.gov.lexml.madoc.schema.entity.BaseOptionType;
+import br.gov.lexml.madoc.schema.entity.OptionableQuestionInterface;
 import br.gov.lexml.madoc.schema.entity.QuestionType;
 
 abstract class AbstractQuestionWithOptionComponentSwing
-	<Q extends QuestionType, 
+	<Q extends QuestionType & OptionableQuestionInterface<? extends BaseOptionInterface<? extends BaseOptionType>>, 
 	OptionCompSw extends OptionComponentSwing
  						<? extends QuestionComponentSwing<? extends QuestionType, ? extends QuestionPanel>,
  						 ? extends BaseOptionType, 
@@ -51,5 +53,5 @@ abstract class AbstractQuestionWithOptionComponentSwing
 	public void setHint(String hint) {
 		getComponent().setHint(hint);
 	}
-
+	
 }

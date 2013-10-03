@@ -7,19 +7,22 @@ import java.util.List;
 import java.util.Map;
 
 import br.gov.lexml.madoc.schema.Constants;
+import br.gov.lexml.madoc.schema.entity.BaseOptionInterface;
 import br.gov.lexml.madoc.schema.entity.BaseOptionType;
+import br.gov.lexml.madoc.schema.entity.OptionableQuestionInterface;
 import br.gov.lexml.madoc.schema.entity.QuestionAnswerOptionType;
 import br.gov.lexml.madoc.schema.entity.QuestionAnswerType;
 import br.gov.lexml.madoc.schema.entity.QuestionType;
 
 public abstract class AbstractQuestionWithOptionComponent 
-	<Q extends QuestionType, 
+	<Q extends QuestionType & OptionableQuestionInterface<? extends BaseOptionInterface<? extends BaseOptionType>>, 
 	 C,
 	 OptionCompSw extends OptionComponent
 	 						<? extends QuestionComponent<? extends QuestionType, ?>,
 	 						 ? extends BaseOptionType, 
 	 						 ?>>
-	extends AbstractQuestionComponent<Q, C>{
+	extends AbstractQuestionComponent<Q, C>
+	implements QuestionWithOptionComponent<Q,C> {
 	
 	private LinkedHashMap<String, OptionCompSw> optionsMap;
 	

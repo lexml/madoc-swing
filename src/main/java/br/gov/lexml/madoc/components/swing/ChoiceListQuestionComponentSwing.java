@@ -221,6 +221,20 @@ class ChoiceListQuestionComponentSwing extends
 	}
 	
 	@Override
+	public void selectOption(String optionId) {
+		choice.getDestModel().clear();
+		
+		//we can only set an existing value  
+		for (ChoiceListOptionType clot : wizardElement.getOptions().getOption()){
+			if (clot.getId().equals(optionId)){
+				choice.getDestModel().add(new OptionChoiceListItemComponent(this, clot));
+				break;
+			}
+		}
+		
+	}
+	
+	@Override
 	public final boolean isRequiredValueReached() {
 		if (!super.isRequiredValueReached()){
 			return false;

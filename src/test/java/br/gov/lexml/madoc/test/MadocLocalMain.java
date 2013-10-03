@@ -13,12 +13,10 @@ import br.gov.lexml.madoc.catalog.CatalogService;
 import br.gov.lexml.madoc.catalog.CatalogServiceFactory;
 import br.gov.lexml.madoc.catalog.ModelInfo;
 import br.gov.lexml.madoc.catalog.local.SDLegLocalCatalogServiceBuilder;
-import br.gov.lexml.madoc.data.DataSets;
 import br.gov.lexml.madoc.execution.swing.WizardExecutionSwing;
 import br.gov.lexml.madoc.schema.entity.MadocAnswerType;
 import br.gov.lexml.madoc.schema.parser.ParseException;
 import br.gov.lexml.madoc.schema.parser.SchemaParser;
-import br.gov.lexml.madoc.wrappers.MadocLibraryWrapper;
 
 public class MadocLocalMain {
 

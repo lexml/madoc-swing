@@ -1,25 +1,11 @@
 package br.gov.lexml.madoc.schema.parser;
 
-import java.io.ByteArrayInputStream;
-import java.io.StringWriter;
-
 import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.URIResolver;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Node;
 
-import br.gov.lexml.madoc.schema.Constants;
 import br.gov.lexml.xloom.processor.DefaultURIResolver;
 import br.gov.lexml.xloom2.XLoomProcessor;
 

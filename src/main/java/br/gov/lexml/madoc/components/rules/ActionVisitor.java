@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import br.gov.lexml.madoc.components.BaseWizardComponent;
 import br.gov.lexml.madoc.components.ComponentController;
 import br.gov.lexml.madoc.components.QuestionComponent;
+import br.gov.lexml.madoc.components.QuestionWithOptionComponent;
 import br.gov.lexml.madoc.schema.entity.AddQuestionValueActionType;
 import br.gov.lexml.madoc.schema.entity.ChangeCaptionActionType;
 import br.gov.lexml.madoc.schema.entity.ChangeEnableActionType;
@@ -13,6 +14,7 @@ import br.gov.lexml.madoc.schema.entity.ChangeHintActionType;
 import br.gov.lexml.madoc.schema.entity.ChangeRequiredActionType;
 import br.gov.lexml.madoc.schema.entity.ChangeVisibilityActionType;
 import br.gov.lexml.madoc.schema.entity.ConsumeRestServiceActionType;
+import br.gov.lexml.madoc.schema.entity.SelectOptionActionType;
 import br.gov.lexml.madoc.schema.entity.SetQuestionValueActionType;
 import br.gov.lexml.madoc.schema.entity.SetVariableValueActionType;
 import br.gov.lexml.madoc.schema.entity.visitor.BaseVisitor;
@@ -191,6 +193,29 @@ class ActionVisitor extends BaseVisitor {
 		log.debug("ChangeRequiredActionType; targetId: "+aBean.getTargetId()+"; isChangeTo: "+aBean.isChangeTo()+(q== null ? "; question not found" : "; question found"));
 		
 		return VisitorAction.CONTINUE;
-	}	
+	}
+	
+	
+	@Override
+	public VisitorAction enter(SelectOptionActionType aBean) {
+		
+		QuestionComponent<?, ?> q = componentController.getQuestionComponentById(aBean.getOptionId());
+		
+		String type = "";
+
+		if (q!= null){
+			if (q instanceof QuestionWithOptionComponent<?,?>){
+				QuestionWithOptionComponent<?,?> qwoc = (QuestionWithOptionComponent<?,?>)q;
+				qwoc.selectOption(aBean.getOptionId());
+				type = " questionType OK (QuestionWithOptionComponent)";
+			} else {
+				type = " wrong questionType (it should be QuestionWithOptionComponent)";
+			}
+		}
+		
+		log.debug("SelectOptionActionType; optionId: "+aBean.getOptionId()+(q== null ? "; question not found" : "; question found")+type);
+		
+		return VisitorAction.CONTINUE;
+	}
 	
 }
