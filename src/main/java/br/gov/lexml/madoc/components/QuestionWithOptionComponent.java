@@ -16,4 +16,10 @@ public interface QuestionWithOptionComponent
 	 */
 	void selectOption(String optionId);
 	
+	/**
+	 * Returns the selected option id
+	 * @return optionId or null if there is no selected option
+	 */
+	public String getSelectedOptionId();	
+	
 }

@@ -171,13 +171,29 @@ public class ComponentController {
 	}
 	
 	public void selectOption(String optionId){
+		
 		//try get a question from this optionId
 		QuestionComponent<?,?> q = getQuestionComponentById(optionId);
 		
+		log.debug("selectOption('"+ optionId + "')" + q == null ? "; question not found" : "; question found");
+
+		if(q == null) {
+			return;
+		}
+		
 		if (q instanceof QuestionWithOptionComponent<?,?>){
 			QuestionWithOptionComponent<?,?> qwoc = (QuestionWithOptionComponent<?,?>)q;
+			String oldId = qwoc.getSelectedOptionId();
 			qwoc.selectOption(optionId);
+			
+			if(oldId == null || !oldId.equals(optionId)) {
+				executeOnChangeRules(qwoc);
+			}
 		}
+		else {
+			log.debug("selectOption('"+ optionId + "') wrong questionType (it should be QuestionWithOptionComponent)");
+		}
+		
 	}
 	
 	/**

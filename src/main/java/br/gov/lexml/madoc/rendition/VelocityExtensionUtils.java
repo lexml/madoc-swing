@@ -1,9 +1,14 @@
 package br.gov.lexml.madoc.rendition;
 
+import java.io.StringWriter;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.text.ParseException;
+
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.Velocity;
+import org.apache.velocity.app.VelocityEngine;
 
 import br.gov.lexml.madoc.schema.Constants;
 
@@ -35,5 +40,26 @@ final class VelocityExtensionUtils {
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
 		return formatter.format(number);
+	}
+
+	/**
+	 * Processa o renderizador Velocity do conteúdo de vtl
+	 */
+	public static String render(String vtl, VelocityContext ctx, VelocityEngine velocityEngine) {
+		
+		if (vtl == null) {
+			return null;
+		}
+		
+		StringWriter sw = new StringWriter();
+		
+		boolean success;
+		if (velocityEngine == null) {
+			success = Velocity.evaluate(ctx, sw, VelocityExtensionHTML2FO.class.getName(), vtl);
+		} else {
+			success = velocityEngine.evaluate(ctx, sw, VelocityExtensionHTML2FO.class.getName(), vtl);
+		}
+		
+		return success? sw.toString(): vtl; 
 	}
 }

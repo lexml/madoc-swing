@@ -38,10 +38,12 @@ class ContextCollection {
 	private Map<String, String> variables;
 	private DataSets dataSets;
 	private CollectionValue collectionValue;
+	private Map<String, String> templateReplacements;
 	
-	ContextCollection(MadocAnswerType madocAnswer, MadocDocumentType madocDocument){
+	ContextCollection(MadocAnswerType madocAnswer, MadocDocumentType madocDocument, Map<String, String> templateReplacements) {
 		this.madocAnswer = madocAnswer;
 		this.madocDocument = madocDocument;
+		this.templateReplacements = templateReplacements;
 	}
 	
 	/**
@@ -191,6 +193,11 @@ class ContextCollection {
 		}
 		return this.variables;
 	}
+	
+	public Map<String, String> getTemplateReplacements() {
+		return templateReplacements;
+	}
+	
 }
 
 

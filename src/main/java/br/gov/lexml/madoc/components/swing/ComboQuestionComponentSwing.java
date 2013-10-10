@@ -143,5 +143,14 @@ class ComboQuestionComponentSwing
 			}
 		}
 	}
+	
+	@Override
+	public String getSelectedOptionId() {
+		Object selectedItem = comboBoxModel.getSelectedItem();
+		if(selectedItem != null) {
+			return ((OptionComboItemComponent)selectedItem).getId();
+		}
+		return null;
+	}
 
 }

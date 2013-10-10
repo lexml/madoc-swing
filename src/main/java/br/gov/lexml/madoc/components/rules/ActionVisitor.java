@@ -199,22 +199,10 @@ class ActionVisitor extends BaseVisitor {
 	@Override
 	public VisitorAction enter(SelectOptionActionType aBean) {
 		
-		QuestionComponent<?, ?> q = componentController.getQuestionComponentById(aBean.getOptionId());
-		
-		String type = "";
+		log.debug("SelectOptionActionType; questionId: " + aBean.getOptionId());
 
-		if (q!= null){
-			if (q instanceof QuestionWithOptionComponent<?,?>){
-				QuestionWithOptionComponent<?,?> qwoc = (QuestionWithOptionComponent<?,?>)q;
-				qwoc.selectOption(aBean.getOptionId());
-				type = " questionType OK (QuestionWithOptionComponent)";
-			} else {
-				type = " wrong questionType (it should be QuestionWithOptionComponent)";
-			}
-		}
-		
-		log.debug("SelectOptionActionType; optionId: "+aBean.getOptionId()+(q== null ? "; question not found" : "; question found")+type);
-		
+		componentController.selectOption(aBean.getOptionId());
+	
 		return VisitorAction.CONTINUE;
 	}
 	

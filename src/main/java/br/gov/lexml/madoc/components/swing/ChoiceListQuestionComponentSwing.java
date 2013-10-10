@@ -235,6 +235,15 @@ class ChoiceListQuestionComponentSwing extends
 	}
 	
 	@Override
+	public String getSelectedOptionId() {
+		List<OptionChoiceListItemComponent> selectedOptions = choice.getDestModel().elements();
+		if(selectedOptions != null && !selectedOptions.isEmpty()) {
+			return selectedOptions.get(0).getId();
+		}
+		return null;
+	}
+	
+	@Override
 	public final boolean isRequiredValueReached() {
 		if (!super.isRequiredValueReached()){
 			return false;

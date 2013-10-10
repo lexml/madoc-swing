@@ -16,6 +16,7 @@ class VelocityTemplateProcessorLanguageExpansion {
 	
 	private final MadocDocumentType madocDocument;
 	private final HostEditor hostEditor;
+	private Map<String, String> templateReplacements; 
 	
 	VelocityTemplateProcessorLanguageExpansion(MadocDocumentType madocDocument, HostEditor hostEditor){
 		this.madocDocument = madocDocument;
@@ -56,7 +57,7 @@ class VelocityTemplateProcessorLanguageExpansion {
 	 * @return
 	 */
 	private String templatesReplacements(String templateString){
-		Map<String, String> replacements = new HashMap<String, String>();
+		templateReplacements = new HashMap<String, String>();
 		
 		for (TemplateType template : madocDocument.getTemplates().getTemplate()) {
 			
@@ -69,11 +70,11 @@ class VelocityTemplateProcessorLanguageExpansion {
 				content = template.getContent().trim().replaceAll("[\\r\\n]", "");
 			}
 			
-			replacements.put(replaceName, content);
+			templateReplacements.put(replaceName, content);
 		}
 		
 		// do replacements
-		MultipleStringReplacer r = new MultipleStringReplacer(replacements, Constants.REPLACEMENT_PREFIX, Constants.REPLACEMENT_SUFFIX);
+		MultipleStringReplacer r = new MultipleStringReplacer(templateReplacements, Constants.REPLACEMENT_PREFIX, Constants.REPLACEMENT_SUFFIX);
 		return r.replace(templateString);
 	}
 	
@@ -105,5 +106,9 @@ class VelocityTemplateProcessorLanguageExpansion {
 		return StringUtils.replaceEachRepeatedly(templateString, 
 				replacements.keySet().toArray(new String[0]), 
 				replacements.values().toArray(new String[0]));
+	}
+	
+	public Map<String, String> getTemplateReplacements() {
+		return templateReplacements;
 	}
 }

@@ -143,6 +143,23 @@ public class VelocityExtension {
 				
 	}
 	
+	public Getter getRenderedTemplate() {
+		
+		return new Getter() {
+			
+			@Override
+			public Object get(Object key) {
+				String template = contextCollection.getTemplateReplacements().get(key);
+				if(StringUtils.isEmpty(template)) {
+					return "";
+				}
+				return VelocityExtensionUtils.render(template, ctx, velocityEngine);
+			}
+			
+		};
+		
+	}
+	
 	/**
 	 * Return a size of something
 	 * @param o
@@ -352,5 +369,6 @@ public class VelocityExtension {
 	private String basicXmlEscape(String str) {
 		return str.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;").replace("'", "&apos;");
 	}
+	
 	
 }

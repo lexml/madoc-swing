@@ -28,6 +28,8 @@ class TemplateProcessor {
 	private final MadocAnswerType madocAnswer;
 	private final CatalogService catalogService;
 	private final HostEditor hostEditor;
+	
+	private Map<String, String> templateReplacements;
 
 	private String velocityResult;
 	
@@ -59,6 +61,8 @@ class TemplateProcessor {
 			//REPLACEMENTS
 			VelocityTemplateProcessorLanguageExpansion vtple = new VelocityTemplateProcessorLanguageExpansion(madocDocument, hostEditor);
 			finalTemplate = vtple.doExpansions(finalTemplate);
+			
+			templateReplacements = vtple.getTemplateReplacements();
 			
 			if (log.isDebugEnabled()){
 				log.debug("finalTemplate: " + finalTemplate);
@@ -158,7 +162,7 @@ class TemplateProcessor {
 
 		VelocityContext velocityContext = new VelocityContext();
 
-		ContextCollection contextCollection = new ContextCollection(madocAnswer, madocDocument);
+		ContextCollection contextCollection = new ContextCollection(madocAnswer, madocDocument, templateReplacements);
 		
 		//put datasets
 		velocityContext.put("ds", contextCollection.getDataSets());
