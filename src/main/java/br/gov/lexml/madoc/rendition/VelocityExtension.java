@@ -68,6 +68,27 @@ public class VelocityExtension {
 	}
 	
 	/**
+	 * Returns a value of a question, option or variable not escaped
+	 * @return
+	 */
+	public Getter getRawValueOf() {
+		
+		return new Getter() {
+			
+			@Override
+			public Object get(Object key) {
+				
+				String value = VelocityExtensionQuestionsUtils.getValueOfId(contextCollection, key.toString());
+						
+				if (value== null){
+					return "";
+				}
+				return value;
+			}
+		};
+	}
+	
+	/**
 	 * Returns the display of a question, options or a variable name from a value
 	 * @return
 	 */
@@ -366,8 +387,12 @@ public class VelocityExtension {
 		return DigestUtils.sha1Hex(text);
 	}
 	
-	private String basicXmlEscape(String str) {
+	public String basicXmlEscape(String str) {
 		return str.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;").replace("'", "&apos;");
+	}
+	
+	public String basicXmlUnescape(String str) {
+		return str.replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", "\"").replace("&apos;", "'").replace("&amp;", "&");
 	}
 	
 	
