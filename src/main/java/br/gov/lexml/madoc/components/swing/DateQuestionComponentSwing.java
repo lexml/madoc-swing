@@ -80,6 +80,19 @@ class DateQuestionComponentSwing extends AbstractQuestionComponentSwing<DateQues
 		}
 	}
 	
+	@Override
+	public void setDefaultValue(String value) {
+		if(wizardElement.isSetDefaultValue()) {
+			if(calendar.getDate().getTime() == wizardElement.getDefaultValue().getTimeInMillis()) {
+				setValue(value);
+				wizardElement.setDefaultValue(calendar.getCalendar());
+			}
+		}
+		else {
+			log.warn("The question " + wizardElement.getId() + " has no default value.");
+		}
+	}
+	
 	/**
 	 * Add number of days to current date 
 	 */
@@ -94,7 +107,7 @@ class DateQuestionComponentSwing extends AbstractQuestionComponentSwing<DateQues
 			calendar.setDate(c.getTime());
 			
 		} catch (Exception e) {
-			log.warn("Could add value "+value+" in JDateChooser", e);
+			log.warn("Can't set value " + value + " to JDateChooser", e);
 
 			throw new RuntimeException(e);
 		}

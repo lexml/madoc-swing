@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.swing.JPanel;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -32,6 +33,7 @@ class RichTextQuestionComponentSwing extends AbstractQuestionComponentSwing<Rich
 
 	private EditorHtml editor;
 	private JPanel cardLayoutMaximizePanel;
+	private String defaultValue;
 	
 	// Se o editor não tiver sido alterado pelo usuário
 	// o getValue retornará o textoOriginal.
@@ -58,6 +60,8 @@ class RichTextQuestionComponentSwing extends AbstractQuestionComponentSwing<Rich
 
 		// setar valor default depois do addListener
 		editor.setDocumentText(hostEditorReplacer.replaceString(wizardElement.getDefaultValue()));
+		
+		defaultValue = editor.getDocumentBody(); // Armazena valor default processado pelo editor  
 		
 		// Criar handler para maximização do editor
 		CardLayoutMaximizeHandler mh = new CardLayoutMaximizeHandler(editor, cardLayoutMaximizePanel) {
@@ -89,6 +93,16 @@ class RichTextQuestionComponentSwing extends AbstractQuestionComponentSwing<Rich
 	public void setValue(String value) {
 		textoOriginal = hostEditorReplacer.replaceString(value);
 		editor.setDocumentText(textoOriginal);
+	}
+	
+	@Override
+	public void setDefaultValue(String value) {
+		String currentValue = editor.getDocumentBody();
+		boolean isEmpty = StringUtils.isEmpty(currentValue);
+		if(isEmpty || defaultValue.equals(currentValue)) {
+			setValue(value);
+			defaultValue = editor.getDocumentBody(); // Armazena valor default processado pelo editor  
+		}
 	}
 	
 	@Override

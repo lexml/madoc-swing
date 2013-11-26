@@ -8,6 +8,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EtchedBorder;
 
+import org.apache.commons.lang3.StringUtils;
+
 import br.gov.lexml.madoc.components.ComponentController;
 import br.gov.lexml.madoc.components.swing.jcomponents.QuestionPanel;
 import br.gov.lexml.madoc.schema.entity.MemoTextQuestionType;
@@ -86,6 +88,17 @@ class MemoTextQuestionComponentSwing extends AbstractQuestionComponentSwing<Memo
 	@Override
 	public void setValue(String value) {
 		textArea.setText(hostEditorReplacer.replaceString(value));		
+	}
+	
+	@Override
+	public void setDefaultValue(String value) {
+		boolean isEmpty = StringUtils.isEmpty(textArea.getText());
+		String defaultValue = hostEditorReplacer.replaceString(
+				hostEditorReplacer.replaceString(wizardElement.getDefaultValue()));
+		if(isEmpty || textArea.getText().equals(defaultValue)) {
+			setValue(value);
+			wizardElement.setDefaultValue(textArea.getText());
+		}
 	}
 	
 	@Override

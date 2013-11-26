@@ -536,6 +536,15 @@
 		</complexContent>
 	</complexType>
 	
+	<complexType name="SetQuestionDefaultValueActionType">
+		<complexContent>
+			<extension base="madoc:ActionType">
+				<attribute name="questionId" type="string"	use="required" />
+				<attribute name="defaultValue" type="string" use="required" />
+			</extension>
+		</complexContent>
+	</complexType>
+	
 	<complexType name="SelectOptionActionType">
 		<complexContent>
 			<extension base="madoc:ActionType">

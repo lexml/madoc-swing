@@ -11,6 +11,7 @@ import javax.swing.text.DefaultFormatter;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.NumberFormatter;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -80,6 +81,21 @@ class DecimalQuestionComponentSwing extends AbstractQuestionComponentSwing<Decim
 	@Override
 	public void setValue(String value) {
 		textField.setText(value);
+	}
+	
+	@Override
+	public void setDefaultValue(String value) {
+		boolean isEmpty = StringUtils.isEmpty(textField.getText());
+		Float defaultValue = wizardElement.getDefaultValue();
+		if(isEmpty || textField.getText().equals(defaultValue.toString())) {
+			setValue(value);
+			try {
+				wizardElement.setDefaultValue(Float.parseFloat(value));
+			}
+			catch(NumberFormatException e) {
+				log.error("Invalid decimal value: " + value);
+			}
+		}
 	}
 	
 	@Override

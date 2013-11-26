@@ -138,13 +138,35 @@ public class ComponentController {
 			
 			q.setValue(value);
 			
-			if (oldValue == null || !oldValue.equals(value)) {
+			if (oldValue == null || !oldValue.equals(q.getValue())) {
 				executeOnChangeRules(q);
 			}
 			
 			log.debug("setQuestionValue; questionId: "+questionId+"; oldValue: "+oldValue+ ";newValue: "+value+"; question found");
 		} else {
 			log.debug("setQuestionValue; questionId: "+questionId+"; question not found");
+		}
+	}
+	
+	/**
+	 * Set question default value
+	 * @param questionId
+	 * @param value
+	 */
+	public void setQuestionDefaultValue(String questionId, String value) {
+		QuestionComponent<?,?> q = getQuestionComponentById(questionId);
+		if (q!= null){
+			String oldValue = q.getValue();
+			
+			q.setDefaultValue(value);
+			
+			if (oldValue == null || !oldValue.equals(q.getValue())) {
+				executeOnChangeRules(q);
+			}
+			
+			log.debug("setQuestionDefaultValue; questionId: "+questionId+"; oldValue: "+oldValue+ ";newValue: "+value+"; question found");
+		} else {
+			log.debug("setQuestionDefaultValue; questionId: "+questionId+"; question not found");
 		}
 	}
 	

@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import br.gov.lexml.madoc.components.BaseWizardComponent;
 import br.gov.lexml.madoc.components.ComponentController;
 import br.gov.lexml.madoc.components.QuestionComponent;
-import br.gov.lexml.madoc.components.QuestionWithOptionComponent;
 import br.gov.lexml.madoc.schema.entity.AddQuestionValueActionType;
 import br.gov.lexml.madoc.schema.entity.ChangeCaptionActionType;
 import br.gov.lexml.madoc.schema.entity.ChangeEnableActionType;
@@ -15,6 +14,7 @@ import br.gov.lexml.madoc.schema.entity.ChangeRequiredActionType;
 import br.gov.lexml.madoc.schema.entity.ChangeVisibilityActionType;
 import br.gov.lexml.madoc.schema.entity.ConsumeRestServiceActionType;
 import br.gov.lexml.madoc.schema.entity.SelectOptionActionType;
+import br.gov.lexml.madoc.schema.entity.SetQuestionDefaultValueActionType;
 import br.gov.lexml.madoc.schema.entity.SetQuestionValueActionType;
 import br.gov.lexml.madoc.schema.entity.SetVariableValueActionType;
 import br.gov.lexml.madoc.schema.entity.visitor.BaseVisitor;
@@ -72,6 +72,16 @@ class ActionVisitor extends BaseVisitor {
 		log.debug("SetQuestionValueActionType; questionId: "+aBean.getQuestionId());
 
 		componentController.setQuestionValue(aBean.getQuestionId(), expandValue(aBean.getValue()));
+		
+		return VisitorAction.CONTINUE;
+	}
+	
+	@Override
+	public VisitorAction enter(SetQuestionDefaultValueActionType aBean) {
+		
+		log.debug("SetQuestionDefaultValueActionType; questionId: " + aBean.getQuestionId());
+		
+		componentController.setQuestionDefaultValue(aBean.getQuestionId(), expandValue(aBean.getDefaultValue()));
 		
 		return VisitorAction.CONTINUE;
 	}

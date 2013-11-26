@@ -23,6 +23,13 @@ public interface QuestionComponent<Q extends QuestionType, C> extends BaseWizard
 
 	void setValue(String value);
 	
+	/**
+	 * Changes the questin value if current value is still the default one.
+	 *  
+	 * @param value
+	 */
+	void setDefaultValue(String value);
+	
 	void addValue(String value);
 	
 	QuestionAnswerType getAnswer();

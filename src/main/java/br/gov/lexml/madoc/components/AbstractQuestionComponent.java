@@ -143,4 +143,10 @@ public abstract class AbstractQuestionComponent
 		return result;
 	}
 	
+	@Override
+	public void setDefaultValue(String value) {
+		log.warn("Método setDefaultValue(String) não implementado para " + getClass().getSimpleName());
+	}
+	
+	
 }

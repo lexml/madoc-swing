@@ -4,6 +4,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeListener;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -80,6 +81,18 @@ class IntegerQuestionComponentSwing extends AbstractQuestionComponentSwing<Integ
 	public void setValue(String value) {
 		spinnerModel.setValue(Integer.parseInt(value));
 	}
+	
+	@Override
+	public void setDefaultValue(String value) {
+		boolean isEmpty = StringUtils.isEmpty(spinnerModel.getValue().toString());
+		Integer defaultValue = wizardElement.getDefaultValue();
+		if(isEmpty || ((Integer)spinnerModel.getValue()).equals(defaultValue)) {
+			setValue(value);
+			wizardElement.setDefaultValue((Integer)spinnerModel.getValue());
+		}
+	}
+	
+	
 	
 	@Override
 	public void addValue(String value) {

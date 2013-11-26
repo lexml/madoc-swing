@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.DocumentFilter;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -41,6 +42,17 @@ class InputTextQuestionComponentSwing extends AbstractQuestionComponentSwing<Inp
 	@Override
 	public void setValue(String value) {
 		textField.setText(hostEditorReplacer.replaceString(value));
+	}
+	
+	@Override
+	public void setDefaultValue(String value) {
+		boolean isEmpty = StringUtils.isEmpty(textField.getText());
+		String defaultValue = hostEditorReplacer.replaceString(
+				hostEditorReplacer.replaceString(wizardElement.getDefaultValue()));
+		if(isEmpty || textField.getText().equals(defaultValue)) {
+			setValue(value);
+			wizardElement.setDefaultValue(textField.getText());
+		}
 	}
 	
 	@Override
