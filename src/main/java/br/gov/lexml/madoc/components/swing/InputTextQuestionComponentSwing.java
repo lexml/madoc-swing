@@ -47,12 +47,11 @@ class InputTextQuestionComponentSwing extends AbstractQuestionComponentSwing<Inp
 	@Override
 	public void setDefaultValue(String value) {
 		boolean isEmpty = StringUtils.isEmpty(textField.getText());
-		String defaultValue = hostEditorReplacer.replaceString(
-				hostEditorReplacer.replaceString(wizardElement.getDefaultValue()));
+		String defaultValue = hostEditorReplacer.replaceString(wizardElement.getDefaultValue());
 		if(isEmpty || textField.getText().equals(defaultValue)) {
 			setValue(value);
-			wizardElement.setDefaultValue(textField.getText());
 		}
+		wizardElement.setDefaultValue(value);
 	}
 	
 	@Override

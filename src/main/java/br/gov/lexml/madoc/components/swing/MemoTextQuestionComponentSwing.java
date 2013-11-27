@@ -93,12 +93,11 @@ class MemoTextQuestionComponentSwing extends AbstractQuestionComponentSwing<Memo
 	@Override
 	public void setDefaultValue(String value) {
 		boolean isEmpty = StringUtils.isEmpty(textArea.getText());
-		String defaultValue = hostEditorReplacer.replaceString(
-				hostEditorReplacer.replaceString(wizardElement.getDefaultValue()));
+		String defaultValue = hostEditorReplacer.replaceString(wizardElement.getDefaultValue());
 		if(isEmpty || textArea.getText().equals(defaultValue)) {
 			setValue(value);
-			wizardElement.setDefaultValue(textArea.getText());
 		}
+		wizardElement.setDefaultValue(value);
 	}
 	
 	@Override

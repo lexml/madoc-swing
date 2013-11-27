@@ -90,6 +90,9 @@ class IntegerQuestionComponentSwing extends AbstractQuestionComponentSwing<Integ
 			setValue(value);
 			wizardElement.setDefaultValue((Integer)spinnerModel.getValue());
 		}
+		else {
+			wizardElement.setDefaultValue(Integer.parseInt(value));
+		}
 	}
 	
 	

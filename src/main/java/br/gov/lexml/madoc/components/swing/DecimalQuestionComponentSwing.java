@@ -89,12 +89,12 @@ class DecimalQuestionComponentSwing extends AbstractQuestionComponentSwing<Decim
 		Float defaultValue = wizardElement.getDefaultValue();
 		if(isEmpty || textField.getText().equals(defaultValue.toString())) {
 			setValue(value);
-			try {
-				wizardElement.setDefaultValue(Float.parseFloat(value));
-			}
-			catch(NumberFormatException e) {
-				log.error("Invalid decimal value: " + value);
-			}
+		}
+		try {
+			wizardElement.setDefaultValue(Float.parseFloat(value));
+		}
+		catch(NumberFormatException e) {
+			log.error("Invalid decimal value: " + value);
 		}
 	}
 	

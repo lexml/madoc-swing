@@ -2,6 +2,8 @@ package br.gov.lexml.madoc.components.swing;
 
 import java.awt.event.ActionListener;
 
+import org.apache.commons.lang3.StringUtils;
+
 import br.gov.lexml.madoc.components.AbstractQuestionWithOptionComponent.MultiLineValueBuilderHelper;
 import br.gov.lexml.madoc.components.ComponentController;
 import br.gov.lexml.madoc.components.swing.jcomponents.QuestionPanel;
@@ -15,6 +17,8 @@ import br.gov.lexml.swing.componentes.JOpenList;
 class TextListQuestionComponentSwing extends AbstractQuestionComponentSwing<TextListQuestionType> {
 
 	private JOpenList<String> openList;
+	
+	private String defaultValue = "";
 	
 	public TextListQuestionComponentSwing(TextListQuestionType question,
 			ComponentController controller) {
@@ -68,6 +72,15 @@ class TextListQuestionComponentSwing extends AbstractQuestionComponentSwing<Text
 	public void setValue(String value) {
 		openList.getModel().clear();
 		openList.getModel().add(value);
+	}
+	
+	@Override
+	public void setDefaultValue(String value) {
+		boolean isEmpty = openList.getModel().size() == 0;
+		if(isEmpty || (openList.getModel().size() == 1 && openList.getModel().get(0).equals(defaultValue))) {
+			setValue(value);
+		}
+		defaultValue = value;
 	}
 	
 	@Override

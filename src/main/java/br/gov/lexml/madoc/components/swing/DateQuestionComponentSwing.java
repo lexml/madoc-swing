@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,9 +21,10 @@ import com.toedter.calendar.JDateChooser;
 class DateQuestionComponentSwing extends AbstractQuestionComponentSwing<DateQuestionType> {
 
 	private static final Logger log = LoggerFactory.getLogger(DateQuestionComponentSwing.class);
-
 	
 	private JDateChooser calendar;
+
+	private final SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
 	
 	public DateQuestionComponentSwing(DateQuestionType question, ComponentController controller) {
 		super(question, controller);
@@ -59,7 +61,7 @@ class DateQuestionComponentSwing extends AbstractQuestionComponentSwing<DateQues
 			return null;
 		}
 
-		qat.setValue(new SimpleDateFormat(Constants.DATE_FORMAT).format(date));
+		qat.setValue(sdf.format(date));
 		return qat;
 	}
 
@@ -71,8 +73,7 @@ class DateQuestionComponentSwing extends AbstractQuestionComponentSwing<DateQues
 	@Override
 	public void setValue(String value) {
 		try {
-			calendar.setDate(new SimpleDateFormat(
-					Constants.DATE_FORMAT).parse(value));
+			calendar.setDate(sdf.parse(value));
 		} catch (ParseException e) {
 			log.warn("Could set value "+value+" in JDateChooser", e);
 
@@ -87,6 +88,16 @@ class DateQuestionComponentSwing extends AbstractQuestionComponentSwing<DateQues
 				setValue(value);
 				wizardElement.setDefaultValue(calendar.getCalendar());
 			}
+			else {
+				try {
+					GregorianCalendar c = new GregorianCalendar();
+					c.setTime(sdf.parse(value));
+					wizardElement.setDefaultValue(c);
+				} catch (ParseException e) {
+					log.warn("Invalid date: " + value);
+				}
+			}
+			
 		}
 		else {
 			log.warn("The question " + wizardElement.getId() + " has no default value.");
