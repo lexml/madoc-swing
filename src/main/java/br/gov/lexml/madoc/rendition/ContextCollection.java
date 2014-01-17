@@ -198,6 +198,11 @@ class ContextCollection {
 		return templateReplacements;
 	}
 	
+	String queryAnswerMetadata(String query) {
+		CollectionValue collectionValue = DataSetUtil.valueFromDataSetValue(madocAnswer.getMetadata());
+		return collectionValue.queryString(query);
+	}
+	
 }
 
 

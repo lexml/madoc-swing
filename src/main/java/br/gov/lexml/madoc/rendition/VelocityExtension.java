@@ -181,6 +181,10 @@ public class VelocityExtension {
 		
 	}
 	
+	public String queryAnswerMetadata(String query) {
+		return contextCollection.queryAnswerMetadata(query);
+	}
+	
 	/**
 	 * Return a size of something
 	 * @param o
