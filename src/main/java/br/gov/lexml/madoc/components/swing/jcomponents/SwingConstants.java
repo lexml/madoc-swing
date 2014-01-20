@@ -15,7 +15,7 @@ public final class SwingConstants {
 	public static final Font TITLE_FONT = BOLD_FONT.deriveFont(14f);
 	public static final Font TOOLTIP_FONT = UIManager.getFont("TextField.font").deriveFont(11f);
 	
-	public static final Color REQUIRED_PANEL_COLOR = Color.ORANGE;
+	public static final Color REQUIRED_PANEL_COLOR = Color.RED;
 	public static final int REQUIRED_PANEL_THICKNESS = 2; 
 	
 	public static final String CLIENT_PROPERTY_INPUT_TEXT = "inputText";

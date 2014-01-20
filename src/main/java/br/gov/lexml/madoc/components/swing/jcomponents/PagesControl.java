@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -21,10 +22,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingUtilities;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import br.gov.lexml.madoc.components.QuestionComponent;
 import br.gov.lexml.swing.editorhtml.handlers.CardLayoutMaximizeHandler;
 
 
@@ -44,6 +47,7 @@ public class PagesControl extends JPanel {
 	private final JPanel contentPanel;
 	private JComponent currentPanel;
 	private final List<JComponent> pagesList;
+	private JScrollPane scrollPane;
 	
 	private final JButton prior = new JButton(SwingConstants.BUTTON_CAPTION_PRIOR_PAGE);
 	private final JButton next = new JButton(SwingConstants.BUTTON_CAPTION_NEXT_PAGE);
@@ -51,7 +55,7 @@ public class PagesControl extends JPanel {
 	private final JButton last = new JButton(SwingConstants.BUTTON_CAPTION_LAST_PAGE);
 	private final JLabel totalPageNumLabel= new JLabel();
 	
-	SpinnerNumberModel goToInputFieldModel = new SpinnerNumberModel(new Integer(1),new Integer(1),new Integer(1),new Integer(1));
+	private SpinnerNumberModel goToInputFieldModel = new SpinnerNumberModel(new Integer(1),new Integer(1),new Integer(1),new Integer(1));
 	
 	private final JSpinner goToInputField = new JSpinner(goToInputFieldModel);
 	
@@ -75,7 +79,7 @@ public class PagesControl extends JPanel {
 		p.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		p.add(pNorth, BorderLayout.NORTH);
 		
-		JScrollPane scrollPane = new JScrollPane(p);
+		scrollPane = new JScrollPane(p);
 		scrollPane.setBorder(null);
 		scrollPane.setViewportBorder(null);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -181,8 +185,15 @@ public class PagesControl extends JPanel {
 		showCurrentPanel();
 	}
 	
+	public void scrollToQuestion(QuestionComponent<?, ?> question) {
+		if(currentPanel != null) {
+			QuestionPanel panel = (QuestionPanel)question.getComponent(); 
+			scrollPane.getViewport().setViewPosition(
+					SwingUtilities.convertPoint(panel, new Point(0, 0), currentPanel));
+		}
+	}
 	
-	private void showCurrentPanel(){
+	private void showCurrentPanel() {
 		if (currentPanel!= null){
 			contentPanel.remove(currentPanel);
 		}
@@ -300,4 +311,5 @@ public class PagesControl extends JPanel {
 		first.setEnabled(hasPrior());
 		last.setEnabled(hasNext());
 	}
+
 }

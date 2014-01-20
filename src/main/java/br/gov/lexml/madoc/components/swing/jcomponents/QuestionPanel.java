@@ -150,7 +150,9 @@ public class QuestionPanel extends JPanel {
 		this.highlight = highlight;
 		
 		if (highlight) {
-			Border highlightBorder = new LineBorder(SwingConstants.REQUIRED_PANEL_COLOR, SwingConstants.REQUIRED_PANEL_THICKNESS); 
+			Border highlightBorder = BorderFactory.createCompoundBorder(
+					new LineBorder(SwingConstants.REQUIRED_PANEL_COLOR, SwingConstants.REQUIRED_PANEL_THICKNESS),
+					BorderFactory.createEmptyBorder(2, 2, 2, 2));
 			if(originalBorder == null) {
 				setBorder(highlightBorder);
 			}

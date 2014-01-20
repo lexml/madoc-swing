@@ -351,12 +351,12 @@ public abstract class AbstractWizardExecution<P extends PagesComponent<?, ? exte
 			
 		}
 		
-		//show page of the first question with no RequiredValuesSet
-		if (highlight){
-			pagesComponent.showPageOfThisQuestionComponent(firstQuestion);
+		// show page of the first question with no RequiredValuesSet
+		if (highlight && firstQuestion != null) {
+			pagesComponent.scrollToQuestion(firstQuestion);
 		}
 		
-		return firstQuestion== null;		
+		return firstQuestion == null;		
 	}
 	
 	@Override

@@ -17,10 +17,20 @@ public class PagesComponentSwing
 	}
 
 	@Override
-	public void showPageOfThisQuestionComponent(QuestionComponent<?,?> firstQuestion){
-		for (PageComponentSwing page : listPages){
-			if (page.containsThisQuestionComponent(firstQuestion)){
+	public void showPageOfThisQuestionComponent(QuestionComponent<?,?> question){
+		for (PageComponentSwing page : listPages) {
+			if (page.containsThisQuestionComponent(question)){
 				component.showThisPagePanel(page.getComponent());
+			}
+		}
+	}
+	
+	@Override
+	public void scrollToQuestion(QuestionComponent<?, ?> question) {
+		for (PageComponentSwing page : listPages) {
+			if (page.containsThisQuestionComponent(question)){
+				component.showThisPagePanel(page.getComponent());
+				component.scrollToQuestion(question);
 			}
 		}
 	}
@@ -30,7 +40,7 @@ public class PagesComponentSwing
 	 * @return
 	 */
 	@Override
-	protected PagesControl createComponent(){
+	protected PagesControl createComponent() {
 
 		//creating PagesControl
 		PagesControl pages = new PagesControl();

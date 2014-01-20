@@ -34,7 +34,9 @@ public interface PagesComponent<P extends PageComponent<?,?>, C> {
 	 * Change the active page of PagesControl based on QuestionComponent
 	 * @param firstQuestion
 	 */
-	void showPageOfThisQuestionComponent(QuestionComponent<?,?> firstQuestion);
+	void showPageOfThisQuestionComponent(QuestionComponent<?,?> question);
+	
+	void scrollToQuestion(QuestionComponent<?,?> question);
 	
 	/**
 	 * Return the list of QuestionComponent inside this PagesComponent 
