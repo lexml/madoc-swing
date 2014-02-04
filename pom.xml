@@ -354,7 +354,7 @@
 		<dependency>
 			<groupId>br.gov.lexml.swing</groupId>
 			<artifactId>lexml-swing-editorhtml</artifactId>
-			<version>0.0.16</version>
+			<version>0.0.17</version>
 		</dependency>
 		<dependency>
 			<groupId>br.gov.lexml</groupId>
