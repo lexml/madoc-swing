@@ -25,7 +25,11 @@ class RadioBoxGroupQuestionComponentSwing
 		
 		for (OptionRadioBoxItemComponent option : getOptionsMap().values()){
 			cbg.add(option.getComponent().getToggleButton());
+			boolean disableOption = !option.getComponent().isEnabled();
 			panel.add(option.getComponent());
+			if(disableOption) {
+				option.getComponent().setEnabled(false);
+			}
 		}
 		
 		
