@@ -13,6 +13,7 @@
         <QuestionAnswer id="q-lib-destino" value="Plenário" hasOptions="true" hasList="false" enabled="true" visible="true">
             <Options>
                 <Option id="q-lib-destino-plenario" value="Plenário" enabled="true" visible="true" selected="true"/>
+                <Option id="q-lib-destino-plenario-via-comissao" value="" enabled="false" visible="true" selected="false"/>
                 <Option id="q-lib-destino-mesa" value="" enabled="false" visible="true" selected="false"/>
                 <Option id="q-lib-destino-comissao" value="" enabled="false" visible="true" selected="false"/>
                 <Option id="q-lib-destino-subcomissao" value="" enabled="false" visible="true" selected="false"/>
@@ -31,6 +32,7 @@
                 <Option id="q-lib-destino-comissao-comissao-opt-_9" value="CMA" enabled="true" visible="true" selected="false"/>
                 <Option id="q-lib-destino-comissao-comissao-opt-_1" value="CRA" enabled="true" visible="true" selected="false"/>
                 <Option id="q-lib-destino-comissao-comissao-opt-_10" value="CRE" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-destino-comissao-comissao-opt-_12" value="CSF" enabled="true" visible="true" selected="false"/>
             </Options>
         </QuestionAnswer>
         <QuestionAnswer id="q-lib-destino-subcomissao-subcomissao" value="" hasOptions="true" hasList="false" enabled="true" visible="false">
@@ -44,11 +46,11 @@
         </QuestionAnswer>
         <QuestionAnswer id="q-proposicao-numero" value="1" hasOptions="false" hasList="false" enabled="true" visible="true"/>
         <QuestionAnswer id="q-proposicao-ano" value="2012" hasOptions="false" hasList="false" enabled="true" visible="true"/>
-        <QuestionAnswer id="q-primeiro-signatario" value="ghfhgfhg" hasOptions="false" hasList="false" enabled="true" visible="true"/>
-        <QuestionAnswer id="q-lib-sessao-data" value="20/03/2013" hasOptions="false" hasList="false" enabled="true" visible="true"/>
+        <QuestionAnswer id="q-primeiro-signatario" value="reqjsdfjskdjsdf df dsf " hasOptions="false" hasList="false" enabled="true" visible="true"/>
+        <QuestionAnswer id="q-lib-sessao-data" value="07/02/2014" hasOptions="false" hasList="false" enabled="true" visible="true"/>
         <QuestionAnswer id="q-sessoes-primeiro-turno" value="5" hasOptions="false" hasList="false" enabled="true" visible="true"/>
         <QuestionAnswer id="q-sessoes-segundo-turno" value="3" hasOptions="false" hasList="false" enabled="true" visible="true"/>
-        <QuestionAnswer id="q-lib-justificativa" value="" hasOptions="false" hasList="false" enabled="true" visible="true"/>
+        <QuestionAnswer id="q-lib-justificativa" value="&lt;p&gt;&#xA;      sdf df df &#xA;    &lt;/p&gt;" hasOptions="false" hasList="false" enabled="true" visible="true"/>
         <QuestionAnswer id="q-lib-fecho-local" value="Sala das Sessões" hasOptions="true" hasList="false" enabled="true" visible="true">
             <Options>
                 <Option id="q-lib-fecho-local-sala-sessoes" value="Sala das Sessões" enabled="true" visible="true" selected="true"/>
@@ -56,10 +58,10 @@
                 <Option id="q-lib-fecho-local-sala-reuniao" value="" enabled="false" visible="true" selected="false"/>
             </Options>
         </QuestionAnswer>
-        <QuestionAnswer id="q-lib-fecho-data" value="20/03/2013" hasOptions="true" hasList="false" enabled="true" visible="true">
+        <QuestionAnswer id="q-lib-fecho-data" value="07/02/2014" hasOptions="true" hasList="false" enabled="true" visible="true">
             <Options>
                 <Option id="q-lib-fecho-data-naoinformado" value="" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-fecho-data-data" value="20/03/2013" enabled="true" visible="true" selected="true"/>
+                <Option id="q-lib-fecho-data-data" value="07/02/2014" enabled="true" visible="true" selected="true"/>
             </Options>
         </QuestionAnswer>
         <QuestionAnswer id="q-lib-autoria-tipo" value="Senador" hasOptions="true" hasList="false" enabled="true" visible="true">
@@ -83,176 +85,178 @@
                 <Option id="q-lib-autoria-signatario-comissao-nome-opt_9" value="COMISSÃO DE MEIO AMBIENTE, DEFESA DO CONSUMIDOR E FISCALIZAÇÃO E CONTROLE" enabled="true" visible="true" selected="false"/>
                 <Option id="q-lib-autoria-signatario-comissao-nome-opt_10" value="COMISSÃO DE RELAÇÕES EXTERIORES E DEFESA NACIONAL" enabled="true" visible="true" selected="false"/>
                 <Option id="q-lib-autoria-signatario-comissao-nome-opt_11" value="COMISSÃO DE SERVIÇOS DE INFRAESTRUTURA" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-comissao-nome-opt_12" value="COMISSÃO SENADO DO FUTURO" enabled="true" visible="true" selected="false"/>
             </Options>
         </QuestionAnswer>
-        <QuestionAnswer id="q-lib-autoria-signatario-senador-nome" value="Acir Gurgacz" hasOptions="true" hasList="false" enabled="true" visible="true">
+        <QuestionAnswer id="q-lib-autoria-signatario-senador-nome" value="s4981" hasOptions="true" hasList="false" enabled="true" visible="true">
             <Options>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_1" value="Acir Gurgacz" enabled="true" visible="true" selected="true"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_13" value="Aécio Neves" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_2" value="Alfredo Nascimento" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_3" value="Aloysio Nunes Ferreira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_4" value="Alvaro Dias" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_5" value="Ana Amélia" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_6" value="Ana Rita" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_7" value="Angela Portela" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_8" value="Anibal Diniz" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_9" value="Antonio Carlos Rodrigues" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_10" value="Antonio Carlos Valadares" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_11" value="Armando Monteiro" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_12" value="Ataídes Oliveira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_14" value="Benedito de Lira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_15" value="Blairo Maggi" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_16" value="Casildo Maldaner" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_21" value="Cássio Cunha Lima" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_22" value="Cícero Lucena" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_17" value="Ciro Nogueira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_18" value="Clésio Andrade" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_19" value="Cristovam Buarque" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_20" value="Cyro Miranda" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_23" value="Delcídio do Amaral" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_24" value="Eduardo Amorim" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_25" value="Eduardo Braga" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_26" value="Eduardo Lopes" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_27" value="Eduardo Suplicy" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_28" value="Epitácio Cafeteira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_29" value="Eunício Oliveira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_30" value="Fernando Collor" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_31" value="Flexa Ribeiro" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_32" value="Francisco Dornelles" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_33" value="Garibaldi Alves" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_34" value="Gim" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_35" value="Humberto Costa" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_36" value="Inácio Arruda" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_37" value="Ivo Cassol" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_38" value="Jader Barbalho" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_39" value="Jarbas Vasconcelos" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_40" value="Jayme Campos" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_45" value="João Alberto Souza" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_46" value="João Capiberibe" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_47" value="João Costa" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_48" value="João Durval" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_49" value="João Vicente Claudino" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_41" value="Jorge Viana" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_42" value="José Agripino" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_43" value="José Pimentel" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_44" value="José Sarney" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_50" value="Kátia Abreu" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_54" value="Lídice da Mata" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_51" value="Lindbergh Farias" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_52" value="Lobão Filho" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_55" value="Lúcia Vânia" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_53" value="Luiz Henrique" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_56" value="Magno Malta" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_57" value="Maria do Carmo Alves" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_58" value="Mário Couto" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_59" value="Paulo Bauer" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_60" value="Paulo Davim" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_61" value="Paulo Paim" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_62" value="Pedro Simon" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_63" value="Pedro Taques" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_64" value="Randolfe Rodrigues" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_65" value="Renan Calheiros" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_66" value="Ricardo Ferraço" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_67" value="Roberto Requião" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_68" value="Rodrigo Rollemberg" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_69" value="Romero Jucá" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_70" value="Ruben Figueiró" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_72" value="Sérgio Petecão" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_73" value="Sérgio Souza" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_71" value="Sodré Santoro" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_74" value="Valdir Raupp" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_75" value="Vanessa Grazziotin" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_76" value="Vital do Rêgo" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_77" value="Waldemir Moka" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_78" value="Walter Pinheiro" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_79" value="Wellington Dias" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_80" value="Wilder Morais" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-signatario-senador-nome-opt_81" value="Zeze Perrella" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_45" value="s4981" enabled="true" visible="true" selected="true"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_19" value="s391" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_22" value="s4527" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_78" value="s846" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_79" value="s945" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_46" value="s4988" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_40" value="s4869" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_33" value="s4697" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_39" value="s4837" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_59" value="s5150" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_8" value="s3" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_72" value="s715" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_60" value="s5164" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_18" value="s3823" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_2" value="s111" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_5" value="s13" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_61" value="s5197" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_23" value="s4529" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_75" value="s739" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_43" value="s4895" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_12" value="s3398" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_41" value="s4877" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_9" value="s3360" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_35" value="s4721" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_48" value="s4994" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_37" value="s4767" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_6" value="s17" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_7" value="s20" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_64" value="s612" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_21" value="s4525" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_15" value="s3634" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_76" value="s765" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_44" value="s4935" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_38" value="s4776" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_51" value="s5006" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_52" value="s5008" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_65" value="s613" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_50" value="s5004" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_13" value="s35" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_28" value="s4545" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_24" value="s4531" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_80" value="s950" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_11" value="s3394" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_25" value="s4537" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_27" value="s4541" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_47" value="s4990" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_20" value="s40" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_66" value="s615" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_34" value="s47" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_4" value="s1249" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_30" value="s4575" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_16" value="s3695" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_14" value="s3579" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_69" value="s643" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_49" value="s5002" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_67" value="s631" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_1" value="s1023" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_26" value="s4539" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_81" value="s952" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_17" value="s3741" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_56" value="s5020" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_77" value="s825" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_70" value="s68" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_53" value="s5010" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_54" value="s5012" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_71" value="s70" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_68" value="s635" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_73" value="s72" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_31" value="s4593" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_74" value="s73" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_42" value="s4893" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_29" value="s4560" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_10" value="s3372" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_62" value="s558" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_36" value="s4763" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_32" value="s4645" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_3" value="s1176" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_63" value="s604" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_55" value="s5016" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_57" value="s5070" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-signatario-senador-nome-opt_58" value="s5144" enabled="true" visible="true" selected="false"/>
             </Options>
         </QuestionAnswer>
-        <QuestionAnswer id="q-lib-autoria-demaissignatarios-senadores" value="" hasOptions="true" hasList="false" enabled="true" visible="true">
+        <QuestionAnswer id="q-lib-autoria-signatario-senador-cargo" value="" hasOptions="false" hasList="false" enabled="true" visible="true"/>
+        <QuestionAnswer id="q-lib-autoria-demaissignatarios-senadores" value="s846;;s4988;;s1023" hasOptions="true" hasList="false" enabled="true" visible="true">
             <Options>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_1" value="Acir Gurgacz" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_13" value="Aécio Neves" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_2" value="Alfredo Nascimento" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_3" value="Aloysio Nunes Ferreira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_4" value="Alvaro Dias" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_5" value="Ana Amélia" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_6" value="Ana Rita" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_7" value="Angela Portela" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_8" value="Anibal Diniz" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_9" value="Antonio Carlos Rodrigues" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_10" value="Antonio Carlos Valadares" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_11" value="Armando Monteiro" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_12" value="Ataídes Oliveira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_14" value="Benedito de Lira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_15" value="Blairo Maggi" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_16" value="Casildo Maldaner" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_21" value="Cássio Cunha Lima" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_22" value="Cícero Lucena" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_17" value="Ciro Nogueira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_18" value="Clésio Andrade" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_19" value="Cristovam Buarque" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_20" value="Cyro Miranda" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_23" value="Delcídio do Amaral" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_24" value="Eduardo Amorim" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_25" value="Eduardo Braga" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_26" value="Eduardo Lopes" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_27" value="Eduardo Suplicy" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_28" value="Epitácio Cafeteira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_29" value="Eunício Oliveira" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_30" value="Fernando Collor" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_31" value="Flexa Ribeiro" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_32" value="Francisco Dornelles" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_33" value="Garibaldi Alves" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_34" value="Gim" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_35" value="Humberto Costa" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_36" value="Inácio Arruda" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_37" value="Ivo Cassol" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_38" value="Jader Barbalho" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_39" value="Jarbas Vasconcelos" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_40" value="Jayme Campos" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_45" value="João Alberto Souza" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_46" value="João Capiberibe" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_47" value="João Costa" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_48" value="João Durval" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_49" value="João Vicente Claudino" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_41" value="Jorge Viana" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_42" value="José Agripino" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_43" value="José Pimentel" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_44" value="José Sarney" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_50" value="Kátia Abreu" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_54" value="Lídice da Mata" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_51" value="Lindbergh Farias" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_52" value="Lobão Filho" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_55" value="Lúcia Vânia" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_53" value="Luiz Henrique" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_56" value="Magno Malta" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_57" value="Maria do Carmo Alves" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_58" value="Mário Couto" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_59" value="Paulo Bauer" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_60" value="Paulo Davim" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_61" value="Paulo Paim" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_62" value="Pedro Simon" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_63" value="Pedro Taques" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_64" value="Randolfe Rodrigues" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_65" value="Renan Calheiros" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_66" value="Ricardo Ferraço" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_67" value="Roberto Requião" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_68" value="Rodrigo Rollemberg" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_69" value="Romero Jucá" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_70" value="Ruben Figueiró" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_72" value="Sérgio Petecão" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_73" value="Sérgio Souza" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_71" value="Sodré Santoro" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_74" value="Valdir Raupp" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_75" value="Vanessa Grazziotin" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_76" value="Vital do Rêgo" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_77" value="Waldemir Moka" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_78" value="Walter Pinheiro" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_79" value="Wellington Dias" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_80" value="Wilder Morais" enabled="true" visible="true" selected="false"/>
-                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_81" value="Zeze Perrella" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_78" value="s846" enabled="true" visible="true" selected="true"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_46" value="s4988" enabled="true" visible="true" selected="true"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_1" value="s1023" enabled="true" visible="true" selected="true"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_45" value="s4981" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_19" value="s391" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_22" value="s4527" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_79" value="s945" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_40" value="s4869" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_33" value="s4697" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_39" value="s4837" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_59" value="s5150" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_8" value="s3" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_72" value="s715" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_60" value="s5164" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_18" value="s3823" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_2" value="s111" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_5" value="s13" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_61" value="s5197" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_23" value="s4529" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_75" value="s739" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_43" value="s4895" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_12" value="s3398" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_41" value="s4877" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_9" value="s3360" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_35" value="s4721" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_48" value="s4994" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_37" value="s4767" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_6" value="s17" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_7" value="s20" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_64" value="s612" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_21" value="s4525" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_15" value="s3634" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_76" value="s765" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_44" value="s4935" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_38" value="s4776" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_51" value="s5006" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_52" value="s5008" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_65" value="s613" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_50" value="s5004" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_13" value="s35" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_28" value="s4545" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_24" value="s4531" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_80" value="s950" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_11" value="s3394" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_25" value="s4537" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_27" value="s4541" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_47" value="s4990" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_20" value="s40" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_66" value="s615" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_34" value="s47" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_4" value="s1249" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_30" value="s4575" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_16" value="s3695" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_14" value="s3579" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_69" value="s643" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_49" value="s5002" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_67" value="s631" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_26" value="s4539" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_81" value="s952" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_17" value="s3741" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_56" value="s5020" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_77" value="s825" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_70" value="s68" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_53" value="s5010" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_54" value="s5012" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_71" value="s70" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_68" value="s635" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_73" value="s72" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_31" value="s4593" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_74" value="s73" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_42" value="s4893" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_29" value="s4560" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_10" value="s3372" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_62" value="s558" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_36" value="s4763" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_32" value="s4645" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_3" value="s1176" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_63" value="s604" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_55" value="s5016" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_57" value="s5070" enabled="true" visible="true" selected="false"/>
+                <Option id="q-lib-autoria-demaissignatarios-senadores-opt-_58" value="s5144" enabled="true" visible="true" selected="false"/>
             </Options>
         </QuestionAnswer>
         <QuestionAnswer id="q-lib-autoria-demaissignatarios-quant-assinaturas" value="0" hasOptions="false" hasList="false" enabled="true" visible="true"/>
@@ -261,21 +265,22 @@
     </QuestionsAnswers>
     <Variables>
         <VariableAnswer variableName="Fundamentacao" value="nos termos regimentais"/>
+        <VariableAnswer variableName="NaturezaRequerimento" value="541"/>
     </Variables>
     <MadocReferences>
-        <MadocDocument id="m016" version="0.120"/>
-        <MadocSkeleton id="s001" version="0.265"/>
+        <MadocDocument id="m016" version="0.129"/>
+        <MadocSkeleton id="s001" version="0.329"/>
         <EmptyVersionItemsIncludedFromCatalog>
-            <CatalogItem resourceName="urn:sf:sistema;sdleg:id;47ab4f9b-7afc-4d26-9bd7-501e664c3911" version="0.13" mimetype="text/xml; charset=UTF-8" fileSuffix="xml" obsolete="false" size="225815">
-                <Metadata id="dataset-library" enabled="true"/>
+            <CatalogItem resourceName="urn:sf:sistema;sdleg:id;47ab4f9b-7afc-4d26-9bd7-501e664c3911" version="0.106" mimetype="text/xml" fileSuffix="xml" obsolete="false" size="246976">
+                <Metadata id="dataset-library"/>
             </CatalogItem>
-            <CatalogItem resourceName="urn:sf:sistema;sdleg:id;72049bfa-d7f4-4f53-a631-ca4ae39180ae" version="0.120" mimetype="text/xml" fileSuffix="xml" obsolete="false" size="26375">
+            <CatalogItem resourceName="urn:sf:sistema;sdleg:id;72049bfa-d7f4-4f53-a631-ca4ae39180ae" version="0.129" mimetype="text/xml" fileSuffix="xml" obsolete="false" size="18892">
                 <Metadata id="m016"/>
             </CatalogItem>
-            <CatalogItem resourceName="urn:sf:sistema;sdleg:id;10b4eda8-e6f1-4064-bbe5-6f12bf87087b" version="0.101" mimetype="text/xml" fileSuffix="xml" obsolete="false" size="19965">
+            <CatalogItem resourceName="urn:sf:sistema;sdleg:id;10b4eda8-e6f1-4064-bbe5-6f12bf87087b" version="0.144" mimetype="text/xml" fileSuffix="xml" obsolete="false" size="25796">
                 <Metadata id="question-library"/>
             </CatalogItem>
-            <CatalogItem resourceName="urn:sf:sistema;sdleg:id;2e161121-2434-4af7-90f8-d8117add3261" version="0.265" mimetype="text/xml" fileSuffix="xml" obsolete="false" size="22354">
+            <CatalogItem resourceName="urn:sf:sistema;sdleg:id;2e161121-2434-4af7-90f8-d8117add3261" version="0.329" mimetype="text/xml" fileSuffix="xml" obsolete="false" size="31128">
                 <Metadata id="s001"/>
             </CatalogItem>
         </EmptyVersionItemsIncludedFromCatalog>

@@ -6,20 +6,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.StringReader;
-import java.io.StringWriter;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
-import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
-import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import org.slf4j.Logger;
@@ -82,30 +76,30 @@ public final class SchemaParser {
 		}
 	}
 	
-	private static Source debugXMLSource(String label, Source source) {
-		
-		log.debug("--------------------------------------------------------");
-		log.debug(label);
-		
-		try {
-			Transformer transformer = TransformerFactory.newInstance().newTransformer();
-			
-			StringWriter sw = new StringWriter();
-			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			transformer.transform(source, new StreamResult(sw));
-			
-			String xml = sw.toString();
-			
-			log.debug(xml);
-			
-			return new StreamSource(new StringReader(xml)); 
-		}
-		catch(Exception e) {
-			log.error("Unable to debug xml result after XLoomParser.", e);
-		}
-		
-		return null;
-	}
+//	private static Source debugXMLSource(String label, Source source) {
+//		
+//		log.debug("--------------------------------------------------------");
+//		log.debug(label);
+//		
+//		try {
+//			Transformer transformer = TransformerFactory.newInstance().newTransformer();
+//			
+//			StringWriter sw = new StringWriter();
+//			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+//			transformer.transform(source, new StreamResult(sw));
+//			
+//			String xml = sw.toString();
+//			
+//			log.debug(xml);
+//			
+//			return new StreamSource(new StringReader(xml)); 
+//		}
+//		catch(Exception e) {
+//			log.error("Unable to debug xml result after XLoomParser.", e);
+//		}
+//		
+//		return null;
+//	}
 
 	private static <T> T loadJaxb(Source source, Class<T> classToUnmarshall) throws ParseException {
 		return loadJaxb(source, classToUnmarshall, new DefaultURIResolver());

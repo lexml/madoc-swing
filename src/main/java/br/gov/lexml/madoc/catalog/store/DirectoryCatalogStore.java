@@ -35,8 +35,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-import com.itextpdf.text.log.SysoLogger;
-
 import br.gov.lexml.madoc.schema.Constants;
 
 public class DirectoryCatalogStore implements DocumentStore {

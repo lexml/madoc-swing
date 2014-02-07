@@ -104,12 +104,13 @@ public class MadocMain {
 				//madoc.loadMadocDocumentFromSDLeg("cvm001");	// VE TOS
 				//madoc.loadMadocDocumentFromSDLeg("cvm002");	// VETOS COMPLETO
 				//madoc.loadMadocDocumentFromSDLeg("m011");
-				madoc.loadMadocDocumentFromSDLeg("m026");
+				//madoc.loadMadocDocumentFromSDLeg("m016");
 				
 				//madoc.showLibraryContent();
 				
 				// load answers
 				//madoc.loadMadocAnswers(new File("src/test/testAnswers.xml"));
+				madoc.loadMadocAnswers(new File("/home/lauroa/Downloads/r-licenca.xml"));
 			}
 			
 		});

@@ -2,8 +2,6 @@ package br.gov.lexml.madoc.components.swing;
 
 import java.awt.event.ActionListener;
 
-import org.apache.commons.lang3.StringUtils;
-
 import br.gov.lexml.madoc.components.AbstractQuestionWithOptionComponent.MultiLineValueBuilderHelper;
 import br.gov.lexml.madoc.components.ComponentController;
 import br.gov.lexml.madoc.components.swing.jcomponents.QuestionPanel;
