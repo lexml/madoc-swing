@@ -167,14 +167,14 @@ public abstract class AbstractWizardExecution<P extends PagesComponent<?, ? exte
 			catalogService.addCatalogEventListener(catalogEventListenerExecution);
 			catalogService.clearModelVersionOverride();
 			
-			//add skeleton
-			catalogService.addModelVersionOverride(madocReferences.getMadocSkeleton().getId(), madocReferences.getMadocSkeleton().getVersion()); 
-			
 			//add EmptyVersionItemsIncludedFromCatalog
 			if (madocReferences != null){
 				for (CatalogItemType cit : madocReferences.getEmptyVersionItemsIncludedFromCatalog().getCatalogItem()){
 					catalogService.addModelVersionOverride(cit.getMetadata().getId(), cit.getVersion());
-				}	
+				}
+				
+				//add skeleton
+				catalogService.addModelVersionOverride(madocReferences.getMadocSkeleton().getId(), madocReferences.getMadocSkeleton().getVersion()); 
 			}
 		}
 	}

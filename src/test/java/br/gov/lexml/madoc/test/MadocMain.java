@@ -110,7 +110,8 @@ public class MadocMain {
 				
 				// load answers
 				//madoc.loadMadocAnswers(new File("src/test/testAnswers.xml"));
-				madoc.loadMadocAnswers(new File("/home/lauroa/Downloads/r-licenca.xml"));
+				//madoc.loadMadocAnswers(new File("/home/lauroa/Downloads/skeleton-novo.xml"));
+				madoc.loadMadocAnswers(new File("/home/lauroa/Downloads/skeleton-antigo.xml"));
 			}
 			
 		});
