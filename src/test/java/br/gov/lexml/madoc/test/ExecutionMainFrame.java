@@ -19,6 +19,7 @@ import javax.swing.UIManager;
 import org.apache.commons.io.FileUtils;
 
 import br.gov.lexml.madoc.MadocException;
+import br.gov.lexml.madoc.catalog.CatalogException;
 import br.gov.lexml.madoc.catalog.CatalogService;
 import br.gov.lexml.madoc.execution.swing.WizardExecutionSwing;
 import br.gov.lexml.madoc.rendition.Rendition;
@@ -129,7 +130,14 @@ class ExecutionMainFrame extends JFrame {
 						d.mkdirs();
 					}
 
-					Rendition rendition = new Rendition(catalogService, wExecution.createMadocAnswer(), wExecution.getCurrentMadocDocument());
+					//Rendition rendition = new Rendition(catalogService, wExecution.createMadocAnswer(), wExecution.getCurrentMadocDocument());
+					Rendition rendition = null;
+					try {
+						rendition = new Rendition(catalogService, wExecution.createMadocAnswer());
+					} catch (CatalogException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}
 					rendition.saveToPDF(new File(targetRenditions
 							+ "rendition.pdf"));
 					rendition.saveToRTF(new File(targetRenditions

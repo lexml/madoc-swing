@@ -14,9 +14,12 @@ import org.w3c.dom.Element;
 
 import br.gov.lexml.madoc.catalog.CatalogException;
 import br.gov.lexml.madoc.catalog.CatalogService;
+import br.gov.lexml.madoc.execution.CatalogEventListenerExecution;
 import br.gov.lexml.madoc.execution.hosteditor.HostEditor;
+import br.gov.lexml.madoc.schema.entity.CatalogItemType;
 import br.gov.lexml.madoc.schema.entity.MadocAnswerType;
 import br.gov.lexml.madoc.schema.entity.MadocDocumentType;
+import br.gov.lexml.madoc.schema.entity.MadocReferencesAnswersType;
 import br.gov.lexml.madoc.util.XMLUtil;
 import br.gov.lexml.pdfa.PDFAttachmentFile;
 
@@ -31,6 +34,7 @@ public class Rendition {
 	private final MadocDocumentType madocDocument;
 	private final MadocAnswerType madocAnswer;
 	private final CatalogService catalogService;
+	protected CatalogEventListenerExecution catalogEventListenerExecution;
 	private HostEditor hostEditor;
 	
 	private TemplateProcessor processor;
@@ -60,14 +64,38 @@ public class Rendition {
 	}
 
 	public Rendition(CatalogService catalogService, MadocAnswerType madocAnswer, MadocDocumentType madocDocument, HostEditor hostEditor) {
+		setupCatalogService(madocAnswer.getMadocReferences());
 		this.madocAnswer = madocAnswer;
 		this.catalogService = catalogService;
 		this.hostEditor = hostEditor;
 		this.madocDocument = madocDocument;
 	}
 	
+	/**
+	 * Prepare Listeners and overridden versions on CatalogService 
+	 */
+	private void setupCatalogService(MadocReferencesAnswersType madocReferences){
+		//add EmptyVersionItemsIncludedFromCatalog
+		if (catalogService!= null && madocReferences != null){
+			for (CatalogItemType cit : madocReferences.getEmptyVersionItemsIncludedFromCatalog().getCatalogItem()){
+				catalogService.addModelVersionOverride(cit.getMetadata().getId(), cit.getVersion());
+			}
+		}
+	}
+	
+	@Override
+	protected void finalize() throws Throwable {
+		super.finalize();
+		catalogService.removeCatalogEventListener(catalogEventListenerExecution);
+		catalogEventListenerExecution = null;
+	}
+
+
+	
 	public MadocDocumentType loadMadocDocumentFromAnswer(CatalogService catalogService, MadocAnswerType madocAnswer) throws CatalogException{
 		try {
+			setupCatalogService(madocAnswer.getMadocReferences());
+			
 			String id = madocAnswer.getMadocReferences().getMadocDocument().getId();
 			String version = madocAnswer.getMadocReferences().getMadocDocument().getVersion();
 			return catalogService.getMadocDocumentModel(id, version).getMadocDocument();

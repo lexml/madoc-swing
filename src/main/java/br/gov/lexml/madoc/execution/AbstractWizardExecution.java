@@ -172,9 +172,6 @@ public abstract class AbstractWizardExecution<P extends PagesComponent<?, ? exte
 				for (CatalogItemType cit : madocReferences.getEmptyVersionItemsIncludedFromCatalog().getCatalogItem()){
 					catalogService.addModelVersionOverride(cit.getMetadata().getId(), cit.getVersion());
 				}
-				
-				//add skeleton
-				catalogService.addModelVersionOverride(madocReferences.getMadocSkeleton().getId(), madocReferences.getMadocSkeleton().getVersion()); 
 			}
 		}
 	}

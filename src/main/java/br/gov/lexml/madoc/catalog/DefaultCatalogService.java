@@ -26,6 +26,11 @@ import br.gov.lexml.madoc.schema.entity.ResourceEntity;
 import br.gov.lexml.madoc.schema.parser.ParseException;
 import br.gov.lexml.madoc.schema.parser.SchemaParser;
 
+/**
+ * It is not thread safe.
+ * @author lauroa
+ *
+ */
 public class DefaultCatalogService extends AbstractCatalogService implements CatalogService {
 
 	private static final Logger log = LoggerFactory.getLogger(DefaultCatalogService.class);
