@@ -75,10 +75,15 @@ public class Rendition {
 	 * Prepare Listeners and overridden versions on CatalogService 
 	 */
 	private void setupCatalogService(MadocReferencesAnswersType madocReferences){
-		//add EmptyVersionItemsIncludedFromCatalog
-		if (catalogService!= null && madocReferences != null){
-			for (CatalogItemType cit : madocReferences.getEmptyVersionItemsIncludedFromCatalog().getCatalogItem()){
-				catalogService.addModelVersionOverride(cit.getMetadata().getId(), cit.getVersion());
+		
+		if(catalogService != null) {
+			catalogService.clearModelVersionOverride();
+			
+			//add EmptyVersionItemsIncludedFromCatalog
+			if (madocReferences != null){
+				for (CatalogItemType cit : madocReferences.getEmptyVersionItemsIncludedFromCatalog().getCatalogItem()){
+					catalogService.addModelVersionOverride(cit.getMetadata().getId(), cit.getVersion());
+				}
 			}
 		}
 	}
