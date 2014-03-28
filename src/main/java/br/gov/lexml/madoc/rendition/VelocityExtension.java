@@ -365,7 +365,15 @@ public class VelocityExtension {
 		}
 		return code.replaceAll("\\s{2,}", " ");
 	}
+	
+	public String lowercaseInitial(String html) {
+		return VelocityExtensionUtils.lowercaseInitial(html);
+	}
 
+	public String removeFinalDot(String html) {
+		return VelocityExtensionUtils.removeFinalDot(html);
+	}
+	
 	// HTML to XSL-FO
 	public String html2fo(String html) {
 		log.debug("html2fo - ANTES: " + html);

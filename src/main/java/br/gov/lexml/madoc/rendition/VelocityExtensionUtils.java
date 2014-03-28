@@ -5,6 +5,8 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -61,5 +63,56 @@ final class VelocityExtensionUtils {
 		}
 		
 		return success? sw.toString(): vtl; 
+	}
+	
+	public static String lowercaseInitial(String html) {
+		
+		System.out.println("lowercaseInitial\n" + html);
+		
+		if(html == null) {
+			return null;
+		}
+		
+		String brancosIniciais = "", restante = html;
+		
+		Matcher m = Pattern.compile("^((?:\\s*<[^>]*?>)*\\s*)(.*)$", Pattern.DOTALL).matcher(html);
+		if(m.matches()) {
+			brancosIniciais = m.group(1);
+			restante = m.group(2);
+		}
+		
+		if(restante.length() > 1 && Character.isUpperCase(restante.charAt(0))) {
+			return brancosIniciais + Character.toLowerCase(restante.charAt(0)) +
+					restante.substring(1);
+		}
+		
+		return html;
+	}
+	
+	public static String removeFinalDot(String html) {
+		
+		System.out.println("removeFinalDot\n" + html);
+ 
+		if(html == null) {
+			return null;
+		}
+		
+		String inicio = html, brancosFinais = "";
+		
+		Matcher m = Pattern.compile("^(.*?)((?:\\s*<[^>]*>)*\\s*)$", Pattern.DOTALL).matcher(html);
+		if(m.matches()) {
+			inicio = m.group(1);
+			brancosFinais = m.group(2);
+		}
+		
+		if(inicio.endsWith(".")) {
+			return inicio.substring(0, inicio.length() - 1) + brancosFinais;
+		}
+		
+		return html;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(removeFinalDot("\n      Apurar Isso e <b>aquilo.</b>\n    "));
 	}
 }
