@@ -211,15 +211,24 @@ public final class SchemaParser {
 	 */
 	public static MadocAnswerType loadAnswer(File file) throws ParseException {
 		try {
-			Source source = new StreamSource(new BufferedInputStream(
-					new FileInputStream(file)));
-			return (MadocAnswerType) loadJaxb(source, MadocAnswerType.class);
+			return loadAnswer(new FileInputStream(file));
 		} catch (FileNotFoundException e) {
 			throw new ParseException("error in loadAnswer: file = "
 					+ file, e);
 		}
 	}
 
+	/**
+	 * Load an answer xml from InputStream
+	 * 
+	 * @param is
+	 * @return
+	 */
+	public static MadocAnswerType loadAnswer(InputStream is) throws ParseException {
+		Source source = new StreamSource(new BufferedInputStream(is));
+		return (MadocAnswerType) loadJaxb(source, MadocAnswerType.class);
+	}
+	
 	/**
 	 * Save a wizard xml file
 	 * 

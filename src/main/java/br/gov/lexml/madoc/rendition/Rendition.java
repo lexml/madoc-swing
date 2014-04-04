@@ -80,7 +80,7 @@ public class Rendition {
 			catalogService.clearModelVersionOverride();
 			
 			//add EmptyVersionItemsIncludedFromCatalog
-			if (madocReferences != null){
+			if (madocReferences != null && madocReferences.getEmptyVersionItemsIncludedFromCatalog() != null) {
 				for (CatalogItemType cit : madocReferences.getEmptyVersionItemsIncludedFromCatalog().getCatalogItem()){
 					catalogService.addModelVersionOverride(cit.getMetadata().getId(), cit.getVersion());
 				}
@@ -103,6 +103,9 @@ public class Rendition {
 			
 			String id = madocAnswer.getMadocReferences().getMadocDocument().getId();
 			String version = madocAnswer.getMadocReferences().getMadocDocument().getVersion();
+			if(version == null) {
+				return catalogService.getMadocDocumentModel(id).getMadocDocument();
+			}
 			return catalogService.getMadocDocumentModel(id, version).getMadocDocument();
 		} catch (NullPointerException e){
 			throw new CatalogException("MadocDocument not found in catalogService.", e);
