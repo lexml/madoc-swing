@@ -33,7 +33,7 @@ class TextListQuestionComponentSwing extends AbstractQuestionComponentSwing<Text
 		ActionListener listener = createDefaultListener();
 		if (listener!= null){
 			
-			openList.getModel().addListener(new ActionToGenListModelListener<String>(listener));
+			openList.getModel().addListener(new ActionToGenListModelListener<String>(listener));			
 		}
 
 		panel.add(openList);
@@ -55,7 +55,7 @@ class TextListQuestionComponentSwing extends AbstractQuestionComponentSwing<Text
 		}
 		
 		qat.setList(qalt);
-		qat.setValue(valueBuilder.getResult());
+		qat.setValue(valueBuilder.getResult());		
 		
 		return qat;
 	}
@@ -63,13 +63,15 @@ class TextListQuestionComponentSwing extends AbstractQuestionComponentSwing<Text
 	@Override
 	protected void answerUpdated(QuestionAnswerType qat) {
 		openList.getModel().clear();
-		openList.getModel().addAll(qat.getList().getValue());
+		openList.getModel().addAll(qat.getList().getValue());		
 	}
 	
 	@Override
 	public void setValue(String value) {
 		openList.getModel().clear();
-		openList.getModel().add(value);
+		if(value != null && !value.toString().trim().equals("")) {
+			openList.getModel().add(value);		
+		}
 	}
 	
 	@Override
@@ -83,7 +85,7 @@ class TextListQuestionComponentSwing extends AbstractQuestionComponentSwing<Text
 	
 	@Override
 	public void addValue(String value) {
-		openList.getModel().add(value);
+		openList.getModel().add(value);		
 	}
 
 }
