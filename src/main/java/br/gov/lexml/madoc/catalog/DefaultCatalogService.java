@@ -26,6 +26,11 @@ import br.gov.lexml.madoc.schema.entity.ResourceEntity;
 import br.gov.lexml.madoc.schema.parser.ParseException;
 import br.gov.lexml.madoc.schema.parser.SchemaParser;
 
+/**
+ * It is not thread safe.
+ * @author lauroa
+ *
+ */
 public class DefaultCatalogService extends AbstractCatalogService implements CatalogService {
 
 	private static final Logger log = LoggerFactory.getLogger(DefaultCatalogService.class);
@@ -362,18 +367,22 @@ public class DefaultCatalogService extends AbstractCatalogService implements Cat
 		Set<CatalogItemType> items = createCatalogItemTypeSet();
 			
 		//traversing items
-		for (final CatalogItemType item : items) {
+		for (CatalogItemType originalItem : items) {
 			
-			MetadataType md = item.getMetadata();
+			MetadataType md = originalItem.getMetadata();
 				
 			if (md.getId().equals(modelId)) {
 					
+				final CatalogItemType item = (CatalogItemType) originalItem.clone();
+				
 				final String effectiveVersion;
 					
 				if (modelVersion != null) {
 					effectiveVersion = modelVersion;
+					item.setVersion(effectiveVersion);
 				} else {
 					effectiveVersion = getVersionFor(item, alwaysLatest);
+					item.setVersion(effectiveVersion);
 						
 					//dispatching event
 					dispatchEvent(new EventDispatcher() {

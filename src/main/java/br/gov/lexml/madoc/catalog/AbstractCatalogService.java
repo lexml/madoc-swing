@@ -15,7 +15,7 @@ public abstract class AbstractCatalogService implements CatalogService{
 		public abstract void dispatch(CatalogEventListener listener);
 	}
 	
-	private final ThreadLocal<Map<String, String>> modelVersionOverrides = new ThreadLocal<Map<String, String>>();
+	private final Map<String, String> modelVersionOverrides = new HashMap<String,String>();
 
 	
 	@Override
@@ -41,28 +41,17 @@ public abstract class AbstractCatalogService implements CatalogService{
 	
 	@Override
 	public void addModelVersionOverride(String modelId, String modelVersion) {
-		Map<String,String> overrides = modelVersionOverrides.get();
-		if(overrides == null) {
-			overrides = new HashMap<String,String>();
-			modelVersionOverrides.set(overrides);
-		}
-		overrides.put(modelId, modelVersion);
+		modelVersionOverrides.put(modelId, modelVersion);
 	}
 
 	@Override
 	public void removeModelVersionOverride(String modelId) {
-		Map<String,String> overrides = modelVersionOverrides.get();
-		if(overrides != null) {
-			overrides.remove(modelId);
-			if(overrides.isEmpty()) {			
-				modelVersionOverrides.set(null);
-			}
-		}		
+		modelVersionOverrides.remove(modelId);
 	}
 
 	@Override
 	public void clearModelVersionOverride() {
-		modelVersionOverrides.set(null);
+		modelVersionOverrides.clear();
 	}
 	
 	/**
@@ -87,9 +76,8 @@ public abstract class AbstractCatalogService implements CatalogService{
 	 * @return
 	 */
 	private String getVersionOverrideFor(String modelId) {
-		Map<String,String> overrides = modelVersionOverrides.get();
-		if(overrides != null && overrides.containsKey(modelId)) {
-			return overrides.get(modelId);
+		if (modelVersionOverrides.containsKey(modelId)) {
+			return modelVersionOverrides.get(modelId);
 		} 
 		return null;		
 	}

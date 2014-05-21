@@ -72,6 +72,12 @@ class CheckBoxQuestionComponentSwing extends AbstractQuestionComponentSwing<Chec
 	}
 	
 	@Override
+	public void setDisplay(String caption) {
+		super.setDisplay(caption);
+		toggleInput.setCaption(caption);
+	}
+	
+	@Override
 	public void setValue(String value) {
 		toggleInput.setSelected(value!= null && !value.equals(Constants.FALSE_STRING));
 		toggleInput.setText(value);
