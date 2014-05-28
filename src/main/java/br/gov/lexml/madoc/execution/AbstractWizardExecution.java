@@ -263,7 +263,7 @@ public abstract class AbstractWizardExecution<P extends PagesComponent<?, ? exte
 		pagesComponent.informMadocAnswer(madocAnswer);
 		
 		if (madocAnswer!= null){
-			questionsAnswersForChangedComparison = madocAnswer.getQuestionsAnswers();
+			questionsAnswersForChangedComparison = getQuestionsAnswersFromPagesComponent();
 		}
 	}
 	
