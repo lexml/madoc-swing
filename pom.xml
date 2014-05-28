@@ -370,7 +370,7 @@
 		<dependency>
 		    <groupId>br.gov.lexml.swing</groupId>
 		    <artifactId>lexml-swing-componentes</artifactId>
-		    <version>1.0.10</version>
+		    <version>1.0.13</version>
     	</dependency>
     	<dependency>
     		<groupId>br.gov.lexml</groupId>
