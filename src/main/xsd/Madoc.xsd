@@ -8,17 +8,17 @@
 	xmlns:inheritance="http://jaxb2-commons.dev.java.net/basic/inheritance"
 	jaxb:extensionBindingPrefixes="xjc inheritance" jaxb:version="2.1">
 
-	
 
-	<!-- ~~~~~ --> 
+
+	<!-- ~~~~~ -->
 	<!-- XLOOM -->
-	<!-- ~~~~~ --> 
-	
-	<!-- 
+	<!-- ~~~~~ -->
+
+	<!--
 	xmlns:xloom="http://www.lexml.gov.br/schema/xloom"
 	 -->
-	
-	<!-- 
+
+	<!--
 	<import schemaLocation="../../../../xloom/src/main/xsd/xloom.xsd" namespace="http://www.lexml.gov.br/schema/xloom" />
 	 -->
 
@@ -87,14 +87,14 @@
 					<element name="Wizard" type="madoc:WizardType"
 						maxOccurs="1" minOccurs="1" />
 					<element name="DataSets" type="madoc:DataSetsType"
-						maxOccurs="1" minOccurs="0" />	
+						maxOccurs="1" minOccurs="0" />
 					<element name="Templates" type="madoc:TemplatesType"
 						maxOccurs="1" minOccurs="1" />
 				</sequence>
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="MadocLibraryType">
 		<complexContent>
 			<extension base="madoc:MadocDocumentBaseType">
@@ -102,7 +102,7 @@
 					<element name="Wizard" type="madoc:WizardType"
 						maxOccurs="1" minOccurs="0" />
 					<element name="DataSets" type="madoc:DataSetsType"
-						maxOccurs="1" minOccurs="0" />	
+						maxOccurs="1" minOccurs="0" />
 				</sequence>
 			</extension>
 		</complexContent>
@@ -155,7 +155,7 @@
 		</sequence>
 
 		<attribute name="replaceName" type="string" use="required" />
-		<!-- 
+		<!--
 			<simpleContent>
 			<extension base="string">
 			<attribute name="replaceName" type="string" use="required" />
@@ -191,7 +191,7 @@
 			<element name="MadocSkeleton" type="madoc:CatalogItemType" />
 		</sequence>
 	</complexType>
-	
+
 	<complexType name="MadocLibrariesCatalogItemType">
 		<sequence minOccurs="1" maxOccurs="unbounded">
 			<element name="MadocLibrary" type="madoc:CatalogItemType" />
@@ -215,19 +215,19 @@
 				<attribute name="enabled" type="boolean" default="true" use="optional" />
 			</extension>
 		</complexContent>
-	</complexType>	
-	
+	</complexType>
+
 	<!-- ~~~~~~~~~~~~ -->
 	<!-- DataSet Type -->
 	<!-- ~~~~~~~~~~~~ -->
-	
+
 	<complexType name="BaseDataSetEntryType" abstract="true" mixed="true">
 	   <choice minOccurs="0" maxOccurs="1">
             <element name="List" type="madoc:DataSetListType" minOccurs="0" maxOccurs="1" />
             <element name="Map" type="madoc:DataSetMapType" minOccurs="0" maxOccurs="1" />
         </choice>
 	</complexType>
-	
+
 	<complexType name="MapEntryType">
 	   <complexContent>
             <extension base="madoc:BaseDataSetEntryType">
@@ -235,17 +235,17 @@
             </extension>
         </complexContent>
 	</complexType>
-	
+
 	<complexType name="ListEntryType">
 	   <complexContent>
-            <extension base="madoc:BaseDataSetEntryType"/>               
+            <extension base="madoc:BaseDataSetEntryType"/>
         </complexContent>
 	</complexType>
-	
+
 	<complexType name="DataSetValueType" abstract="true"/>
 
 	<complexType name="DataSetListType">
-	   <complexContent>	  
+	   <complexContent>
 		   <extension base="madoc:DataSetValueType">
 			   <sequence minOccurs="0" maxOccurs="unbounded">
 			       <element name="Entry" type="madoc:ListEntryType"/>
@@ -253,9 +253,9 @@
 		   </extension>
 	   </complexContent>
 	</complexType>
-	
+
 	<complexType name="DataSetMapType">
-       <complexContent>   
+       <complexContent>
 	       <extension base="madoc:DataSetValueType">
 		       <sequence minOccurs="0" maxOccurs="unbounded">
 		           <element name="Entry" type="madoc:MapEntryType"/>
@@ -263,7 +263,7 @@
 	       </extension>
        </complexContent>
     </complexType>
-	
+
 	<complexType name="DataSetType">
 	   <complexContent>
             <extension base="madoc:BaseDataSetEntryType">
@@ -271,13 +271,13 @@
             </extension>
         </complexContent>
 	</complexType>
-	
-	<complexType name="DataSetsType">	   
+
+	<complexType name="DataSetsType">
        <sequence minOccurs="0" maxOccurs="unbounded">
            <element name="DataSet" type="madoc:DataSetType"/>
-       </sequence>       
+       </sequence>
 	</complexType>
-	
+
 	<!-- ~~~~~~~~~~~ -->
 	<!-- Wizard Type -->
 	<!-- ~~~~~~~~~~~ -->
@@ -290,7 +290,7 @@
 			use="optional" />
 		<attribute name="display" type="string" use="optional" />
 	</complexType>
-	
+
 	<complexType name="BaseWizardRestrictType" abstract="true">
 		<complexContent>
 			<restriction base="madoc:BaseWizardType">
@@ -301,7 +301,7 @@
 
 	<complexType name="WizardType">
 		<sequence>
-			<element name="OnLoadRules" type="madoc:OnLoadRulesType" minOccurs="0" maxOccurs="1" />	
+			<element name="OnLoadRules" type="madoc:OnLoadRulesType" minOccurs="0" maxOccurs="1" />
 			<element name="Pages" type="madoc:PagesType" minOccurs="1" maxOccurs="1" />
 		</sequence>
 		<attribute name="display" type="string" use="optional"></attribute>
@@ -318,7 +318,7 @@
 			<element name="Rule" type="madoc:RuleType" />
 		</sequence>
 	</complexType>
-	
+
 	<complexType name="OnLoadRulesType">
 		<complexContent>
 			<extension base="madoc:RulesType" />
@@ -346,7 +346,7 @@
 					<element name="Question" type="madoc:QuestionType" minOccurs="0" maxOccurs="unbounded"/>
 					<element name="Section" type="madoc:SectionType" minOccurs="0" maxOccurs="unbounded"/>
 					<element name="Command" type="madoc:BaseCommandType" minOccurs="0" maxOccurs="unbounded"/>
-					<element name="HtmlContent" type="madoc:HtmlContentType" minOccurs="0" maxOccurs="unbounded" />	
+					<element name="HtmlContent" type="madoc:HtmlContentType" minOccurs="0" maxOccurs="unbounded" />
 				</choice>
 			</extension>
 		</complexContent>
@@ -369,27 +369,27 @@
 	</complexType>
 
 	<!-- COMMAND TYPES -->
-	
+
 	<complexType name="BaseCommandType" abstract="true">
 		<complexContent>
 			<extension base="madoc:BaseWizardRestrictType">
 				<choice>
 					<element name="OnClickRules" type="madoc:OnClickRulesType" minOccurs="0" maxOccurs="1" />
 				</choice>
-			
+
 				<attribute name="hint" type="string" use="optional" />
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="ButtonType">
 		<complexContent>
 			<extension base="madoc:BaseCommandType" />
 		</complexContent>
 	</complexType>
-	
+
 	<!-- HTMLCONTENT TYPE -->
-		
+
 	<complexType name="HtmlContentType">
 		<complexContent>
 			<extension base="madoc:BaseWizardRestrictType">
@@ -401,11 +401,11 @@
 	</complexType>
 
 	<!-- RULE TYPES -->
-	
+
 	<complexType name="BaseRuleType" abstract="false">
 		<attribute name="id" type="ID" use="optional" />
 	</complexType>
-	
+
 	<complexType name="RuleType" abstract="true">
 		<complexContent>
 			<extension base="madoc:BaseRuleType" />
@@ -426,7 +426,7 @@
 					<element name="Otherwise" type="madoc:ActionListType"
 						minOccurs="0" maxOccurs="1" />
 				</sequence>
-				
+
 				<attribute name="questionId" use="optional" />
 			</extension>
 		</complexContent>
@@ -436,10 +436,18 @@
 		<complexContent>
 			<extension base="madoc:ActionListType">
 				<attribute name="questionValue" use="required"/>
+				<attribute name="attributeToTest" default="value" use="optional">
+					<simpleType>
+						<restriction base="string">
+							<enumeration value="optionId" />
+							<enumeration value="value" />
+						</restriction>
+					</simpleType>
+				</attribute>
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="SimpleRuleType">
 		<complexContent>
 			<extension base="madoc:RuleType">
@@ -482,7 +490,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="ChangeEnableActionType">
 		<complexContent>
 			<extension base="madoc:ChangeBooleanActionType" />
@@ -494,7 +502,7 @@
 			<extension base="madoc:ChangeBooleanActionType" />
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="ChangeRequiredActionType">
 		<complexContent>
 			<extension base="madoc:ChangeBooleanActionType" />
@@ -508,7 +516,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="ChangeCaptionActionType">
 		<complexContent>
 			<extension base="madoc:ChangeActionType">
@@ -526,7 +534,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="SetQuestionValueActionType">
 		<complexContent>
 			<extension base="madoc:ActionType">
@@ -535,7 +543,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="SetQuestionDefaultValueActionType">
 		<complexContent>
 			<extension base="madoc:ActionType">
@@ -544,7 +552,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="SelectOptionActionType">
 		<complexContent>
 			<extension base="madoc:ActionType">
@@ -552,7 +560,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="AddQuestionValueActionType">
 		<complexContent>
 			<extension base="madoc:ActionType">
@@ -561,12 +569,12 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="ConsumeRestServiceActionType" abstract="false">
 		<complexContent>
 			<extension base="madoc:ActionType">
 				<sequence>
-					
+
 					<element name="transformations" minOccurs="0" maxOccurs="1">
 						<complexType>
 							<sequence minOccurs="0" maxOccurs="unbounded">
@@ -574,10 +582,10 @@
 									<complexType>
 										<attribute name="href" type="anyURI" use="required" />
 									</complexType>
-								</element> 
+								</element>
 								<element name="inlineXSL" minOccurs="0" maxOccurs="unbounded">
 									<complexType>
-									
+
 										<sequence>
 											<any processContents="lax" namespace="http://www.w3.org/1999/XSL/Transform">
 												<annotation>
@@ -592,31 +600,31 @@
 							</sequence>
 						</complexType>
 					</element>
-					
+
 					<element name="actions" minOccurs="1" maxOccurs="1">
 						<complexType>
 							<sequence>
-								<element name="action" type="madoc:ConsumeActionType" minOccurs="1" maxOccurs="unbounded" /> 
+								<element name="action" type="madoc:ConsumeActionType" minOccurs="1" maxOccurs="unbounded" />
 							</sequence>
 						</complexType>
 					</element>
-					
+
 				</sequence>
 				<attribute name="uri" type="anyURI" use="required" />
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<!-- ConsumeAction -->
-	
-	<complexType name="ConsumeActionType" abstract="true"> 
+
+	<complexType name="ConsumeActionType" abstract="true">
 		<complexContent>
 			<extension base="madoc:ActionType">
 				<attribute name="xpath" type="string" use="required" />
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="ConsumeSetVariableValueActionType">
 		<complexContent>
 			<extension base="madoc:ConsumeActionType">
@@ -624,7 +632,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="ConsumeSetQuestionValueActionType">
 		<complexContent>
 			<extension base="madoc:ConsumeActionType">
@@ -640,7 +648,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 
 	<!-- QUESTIONS TYPES -->
 
@@ -652,13 +660,13 @@
 					<element name="OnLoadRules" type="madoc:OnLoadRulesType" minOccurs="0" maxOccurs="1" />
 					<element name="HtmlContent" type="string" minOccurs="0" maxOccurs="1" />
 				</sequence>
-			
+
 				<attribute name="hint" type="string" use="optional" />
 				<attribute name="required" type="boolean" use="optional" default="false" />
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<!-- text types -->
 
 	<complexType name="TextQuestionType" abstract="true">
@@ -670,7 +678,7 @@
 					use="optional" />
 				<attribute name="minLength" type="integer"
 					use="optional" />
-				<attribute name="defaultValueSatisfiesRequiredQuestion" type="boolean" default="true" />	
+				<attribute name="defaultValueSatisfiesRequiredQuestion" type="boolean" default="true" />
 			</extension>
 		</complexContent>
 	</complexType>
@@ -756,7 +764,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-		
+
 	<simpleType name="InputType">
 		<restriction base="string">
 			<enumeration value="date" />
@@ -765,7 +773,7 @@
 			<enumeration value="integer" />
 		</restriction>
 	</simpleType>
-	
+
 
 	<!-- select types -->
 
@@ -801,7 +809,7 @@
 			<extension base="madoc:SelectQuestionType" />
 		</complexContent>
 	</complexType>
-	
+
 	<!-- ChoiceListType type -->
 
 	<complexType name="ChoiceListQuestionType">
@@ -809,7 +817,7 @@
 			<appinfo>
 				<inheritance:implements>br.gov.lexml.madoc.schema.entity.OptionableQuestionInterface&lt;ChoiceListOptionsType&gt;</inheritance:implements>
 			</appinfo>
-		</annotation> 
+		</annotation>
 		<complexContent>
 			<extension base="madoc:QuestionType">
 				<sequence minOccurs="0" maxOccurs="1">
@@ -819,14 +827,14 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<!-- BaseOptionType -->
-	
+
 	<complexType name="BaseOptionsType" abstract="true">
 		<attribute name="dataSetBind" type="string" use="optional" />
 		<attribute name="sorted" type="boolean" use="optional" default="false" />
 	</complexType>
-		
+
 	<complexType name="ChoiceListOptionsType">
 		<annotation>
 			<appinfo>
@@ -841,7 +849,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="SelectOptionsType">
 		<annotation>
 			<appinfo>
@@ -854,10 +862,10 @@
 					<element name="Option" type="madoc:SelectOptionType" />
 				</choice>
 			</extension>
-		</complexContent>	
+		</complexContent>
 	</complexType>
-	
-	
+
+
 	<complexType name="BaseOptionType" abstract="true">
 		<complexContent>
 			<extension base="madoc:BaseWizardRestrictType">
@@ -878,16 +886,16 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="ChoiceListOptionType">
 		<complexContent>
 			<extension base="madoc:BaseOptionType" />
 		</complexContent>
 	</complexType>
-	
-	
+
+
 	<!-- TextListQyestionType -->
-	
+
 		<complexType name="TextListQuestionType">
 		<complexContent>
 			<extension base="madoc:QuestionType">
@@ -896,7 +904,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<!-- ~~~~~~~~~~~~~~~ -->
 	<!-- MadocAnswerType -->
 	<!-- ~~~~~~~~~~~~~~~ -->
@@ -908,7 +916,7 @@
 		</sequence>
 		<attribute name="requiredQuestionsAnswered" type="boolean" use="required" />
 	</complexType>
-	
+
 	<!-- MadocDocumentReferenceAnswersType -->
 	<complexType name="MadocReferencesAnswersType">
 		<sequence minOccurs="1" maxOccurs="1">
@@ -923,20 +931,20 @@
 			</element>
 		</sequence>
 	</complexType>
-	
+
 	<!-- Madoc Info -->
 	<complexType name="MadocInfoAnswersType">
 		<attribute name="id" type="string" use="required" />
 		<attribute name="version" type="string" use="required" />
 	</complexType>
-	
+
 	<!-- VariablesAnswersType -->
 	<complexType name="VariablesAnswersType">
 		<sequence maxOccurs="unbounded">
 			<element name="VariableAnswer" type="madoc:VariableAnswerType" />
 		</sequence>
 	</complexType>
-	
+
 	<!-- QuestionAnswerType -->
 
 	<complexType name="QuestionAnswerType">
@@ -954,13 +962,13 @@
 		<attribute name="visible" type="boolean" use="optional"
 			default="true" />
 	</complexType>
-	
+
 	<complexType name="QuestionAnswerListType">
 		<sequence minOccurs="0" maxOccurs="unbounded">
 			<element name="Value" type="string" />
 		</sequence>
 	</complexType>
-	
+
 	<complexType name="QuestionAnswerOptionsType">
 		<sequence minOccurs="0" maxOccurs="unbounded">
 			<element name="Option" type="madoc:QuestionAnswerOptionType" />
@@ -974,7 +982,7 @@
 		<attribute name="visible" type="boolean" use="optional" default="true" />
 		<attribute name="selected" type="boolean" use="optional" default="true" />
 	</complexType>
-	
+
 
 	<!-- VariableAnswerType -->
 
@@ -982,5 +990,5 @@
 		<attribute name="variableName" type="string" use="required" />
 		<attribute name="value" type="string" use="required" />
 	</complexType>
-	
+
 </schema>
