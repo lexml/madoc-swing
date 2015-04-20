@@ -23,32 +23,8 @@
 
 	<scm>
 		<url>https://github.com/lexml/${project.artifactId}</url>
-		<developerConnection>scm:git:https://github.com/lexml/${project.artifactId}.git</developerConnection>
-		<connection>scm:git:https://github.com/lexml/${project.artifactId}.git</connection>
 		<tag>HEAD</tag>
 	</scm>
-
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>GitHub ${project.artifactId} Repository</name>
-			<url>https://raw.github.com/lexml/mvn-repo/master</url>
-		</repository>
-	</distributionManagement>
-
-	<repositories>
-		<repository>
-			<id>GitHub Repository</id>
-			<url>https://raw.github.com/lexml/mvn-repo/master</url>
-			<releases>
-      			<enabled>true</enabled>
-    		</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
 
 	<build>
 		<plugins>
@@ -83,7 +59,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.9</version>
+				<version>0.11</version>
 				<configuration>
 					<message>Maven artifacts for ${project.artifactId}
 						${project.version}</message>  <!-- git commit message -->
