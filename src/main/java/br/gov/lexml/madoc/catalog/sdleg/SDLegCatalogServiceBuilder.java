@@ -3,6 +3,14 @@ package br.gov.lexml.madoc.catalog.sdleg;
 import java.io.File;
 import java.io.IOException;
 import java.net.URLConnection;
+import java.security.SecureRandom;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.KeyManager;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -31,6 +39,7 @@ import br.gov.lexml.madoc.catalog.store.policy.FirstMatchPolicy;
 import br.gov.lexml.madoc.catalog.store.policy.FixedPolicy;
 import br.gov.lexml.madoc.catalog.store.policy.RegexPolicy;
 import br.gov.lexml.madoc.schema.Constants;
+import br.gov.lexml.madoc.util.DefaultTrustManager;
 
 /**
  * CatalogServiceBuild for SDLeg (Senado Federal)
@@ -106,6 +115,27 @@ public class SDLegCatalogServiceBuilder implements CatalogServiceFactory {
 					@Override
 					public void configure(String docUri, URLConnection con) {
 						con.setUseCaches(!docUri.equals(catalogUrn));
+						if(con instanceof HttpsURLConnection) {
+							
+							HttpsURLConnection scon = (HttpsURLConnection)con;
+
+							scon.setHostnameVerifier(new HostnameVerifier() {
+								@Override
+								public boolean verify(String hostname, SSLSession session) {
+									return true;
+								}
+							});
+
+							try {
+								SSLContext ctx = SSLContext.getInstance("TLS");
+								ctx.init(new KeyManager[0], new TrustManager[] {new DefaultTrustManager()}, new SecureRandom());
+								scon.setSSLSocketFactory(ctx.getSocketFactory());
+							} catch (Exception e) {
+								log.error(e.getLocalizedMessage(), e);
+							}
+							
+							
+						}
 					}
 
 					@Override
