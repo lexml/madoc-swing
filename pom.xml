@@ -4,7 +4,7 @@
 
 	<groupId>br.gov.lexml.madoc</groupId>
 	<artifactId>madoc-swing</artifactId>
-	<version>0.0.62</version>
+	<version>0.0.63-SNAPSHOT</version>
 
 	<name>Automatic Document Assembler</name>
 	<description>Montador automático de documentos</description>
@@ -26,7 +26,7 @@
 		<url>https://github.com/lexml/${project.artifactId}</url>
 		<developerConnection>scm:git:https://github.com/lexml/${project.artifactId}.git</developerConnection>
 		<connection>scm:git:https://github.com/lexml/${project.artifactId}.git</connection>
-		<tag>madoc-swing-0.0.62</tag>
+		<tag>HEAD</tag>
 	</scm>
 	
 	<repositories>
