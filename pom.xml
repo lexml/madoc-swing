@@ -19,6 +19,7 @@
 
 		<maven.javadoc.skip>true</maven.javadoc.skip>
 		<maven.test.skip>true</maven.test.skip>
+		<maven.site.skip>true</maven.site.skip>
 	</properties>
 
 	<scm>
@@ -27,23 +28,35 @@
 		<connection>scm:git:https://github.com/lexml/${project.artifactId}.git</connection>
 		<tag>HEAD</tag>
 	</scm>
+	
+	<repositories>
+		<repository>
+			<id>bintray-lexml-lexml</id>
+			<name>bintray</name>
+			<url>https://dl.bintray.com/lexml/lexml</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	
+	<distributionManagement>
+		<repository>
+			<id>bintray-lexml-lexml</id>
+			<name>lexml-lexml</name>
+			<url>https://api.bintray.com/maven/lexml/lexml/${project.artifactId}/;publish=1</url>
+		</repository>
+	</distributionManagement>	
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.5</version>
+				<version>3.0.0-M1</version>
 				<configuration>
 					<detail>true</detail>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -59,41 +72,12 @@
 			  </executions>
 			</plugin>
 			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<version>0.12</version>
-				<configuration>
-					<message>Maven artifacts for ${project.artifactId}
-						${project.version}</message>  <!-- git commit message -->
-					<noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
-					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
-					<branch>refs/heads/master</branch>
-					<includes>
-						<include>**/*</include>
-					</includes>
-					<repositoryName>mvn-repo</repositoryName>      <!-- github repo name -->
-					<repositoryOwner>lexml</repositoryOwner>    <!-- github username -->
-					<merge>true</merge>
-				</configuration>
-				<executions>
-					<!-- run site-maven-plugin's 'site' target as part of the build's normal
-						'deploy' phase -->
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>deploy</phase>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<compilerArguments>
 						<g />
 						<deprecation />
@@ -335,12 +319,12 @@
 		<dependency>
 			<groupId>br.gov.lexml.swing</groupId>
 			<artifactId>lexml-swing-editorhtml</artifactId>
-			<version>0.0.17</version>
+			<version>0.0.19</version>
 		</dependency>
 		<dependency>
 			<groupId>br.gov.lexml</groupId>
 			<artifactId>xloom</artifactId>
-			<version>2.0.3</version>
+			<version>2.0.4</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>xalan</artifactId>
